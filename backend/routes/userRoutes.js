@@ -9,11 +9,11 @@ const user = require('../models/user.js');
 //Test route
 //public
 router.post('/',[ 
-    check('name', 'Name is required').not().isEmpty(),
-    check('email', 'Please include a proper email').isEmail(), //email format
-    check('password', 'Please enter a password with 5 or more charectors').isLength({min: 5})
+    // check('name', 'Name is required').not().isEmpty(),
+    // check('email', 'Please include a proper email').isEmail(), //email format
+    // check('password', 'Please enter a password with 5 or more charectors').isLength({min: 5})
 ], async (req, res) =>{
-    console.log(req.body);
+    console.log(req);
     const errors = validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array() });
@@ -40,13 +40,14 @@ router.post('/',[
             password
         });
 
-        
+        console.log('before salt creation')
         const salt = await bcrypt.genSalt(10);
-
+        console.log('after salt creation')
+        console.log(password);
         User.password = await bcrypt.hash(password, salt);
-
+        console.log(' password hashed');
         await User.save();
-
+        console.log('after saving user');
     //Return json webtoken
     
     const payload = {

@@ -5,14 +5,14 @@ frontend:-
 4)news page(newscatcher api)\
 5) discussion page.
 6) option to download chart
-
+7)creation of watchlist page for user to select coins
 
 backend:-
 1)user authentication(name,email,pass)
-2)user coin pref(watchlist)
+2)user coin pref(watchlist)  {/watchlist routes creation ,to be redirected there after /register and a button will be present above logout to go there as well}
 3)blogs
 4) discussion page
-
+7)creation of watchlist page for user to select coins
 
 database:-
 1)user model(user pass,email,watchlist,{comments},{posts})

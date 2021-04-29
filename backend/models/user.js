@@ -1,8 +1,8 @@
 var mongoose=require("mongoose");
 const UserSchema=new mongoose.Schema({
   name:String,
-  password:String,
   email:String,
+  password:String,
   mywatchlist: [String],
   comments: [{
     type: mongoose.Schema.Types.ObjectId,

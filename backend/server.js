@@ -17,7 +17,9 @@ mongoose.connect(mongourl,{useNewUrlParser: true,useUnifiedTopology: true},funct
 
 const app=express();
 
-app.use(bodyParser.urlencoded({extended:true}));
+const cors = require('cors');
+app.use(cors());
+app.use(bodyParser.json());
 
 app.get("/",function(req,res){
     res.send("landing")

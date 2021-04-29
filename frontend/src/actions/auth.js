@@ -9,17 +9,16 @@ import {
     LOGIN_SUCCESS,
     LOGOUT
 } from './Types'
-// import setauthtoken from '../utils/setauthtoken';
-
+import setauthtoken from '../utils/setauthtoken';
 
 //load user
 
 export const loaduser = () => async dispatch =>{
-    // if(localStorage.token){
-    //     setauthtoken(localStorage.token)
-    // }
+    if(localStorage.token){
+        setauthtoken(localStorage.token)
+    }
     try {
-        const res = await axios.get('/api/auth');
+        const res = await axios.get('http://localhost:5000/login');
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -37,24 +36,32 @@ export const loaduser = () => async dispatch =>{
 export const register = ({name, email, password}) => async dispatch => {
     const config = {
         headers: {
-            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type':'application/json'
         }
     }
 
     const body = JSON.stringify({name, email, password});
 
     try {
-        const res = await axios.post('/api/user', body, config);
+        console.log(body);
+
+        const res = await axios.post('http://localhost:5000/register', body, config);
+        console.log('res'+res);
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
         });
         dispatch(loaduser());
     } catch (err) {
+        if(err){
+            console.log(err);
+        }
 
         const errors = err.response.data.errors;
         if(errors){
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+            console.log(errors);
         }
         dispatch({
             type: REGISTER_FAILURE
@@ -74,12 +81,14 @@ export const login = (email, password) => async dispatch => {
     const body = JSON.stringify({email, password});
 
     try {
-        const res = await axios.post('/api/auth', body, config);
+        console.log(body);
+        console.log('in actions');
+        const res = await axios.post('http://localhost:5000/login', body, config);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
         });
-         dispatch(loaduser());
+        //  dispatch(loaduser());
     } catch (err) {
 
         const errors = err.response.data.errors;
