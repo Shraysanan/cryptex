@@ -7,6 +7,8 @@ import {
     AUTH_ERROR,
     LOGIN_FAILURE,
     LOGIN_SUCCESS,
+    GETWATCHLIST,
+    WATHCLISTERROR,
     LOGOUT
 } from './Types'
 import setauthtoken from '../utils/setauthtoken';
@@ -52,7 +54,7 @@ export const register = ({name, email, password}) => async dispatch => {
             type: REGISTER_SUCCESS,
             payload: res.data
         });
-        dispatch(loaduser());
+        // dispatch(loaduser());
     } catch (err) {
         if(err){
             console.log(err);
@@ -89,7 +91,7 @@ export const login = (email, password) => async dispatch => {
             payload: res.data
         });
         //  dispatch(loaduser());
-    } catch (err) {
+    } catch (err) {;
 
         const errors = err.response.data.errors;
         if(errors){
@@ -100,6 +102,32 @@ export const login = (email, password) => async dispatch => {
         });
     }
 }
+
+export const getWatchList = () => async (dispatch) => {
+
+    try {
+        console.log('inside action')
+        const res = await axios.get('http://localhost:5000/watchlist');
+        console.log('res'+res);
+        dispatch({
+            type: GETWATCHLIST,
+            payload: res.data
+        });
+
+        
+    } catch (err) {
+        dispatch({
+            type: WATHCLISTERROR,
+            payload:{msg: err.response.statueText, status: err.response.status}
+        })
+        if(err){
+            console.log(err);
+        }
+        
+    }
+}
+
+
 
 // logout action and clear profiles
 

@@ -21,7 +21,7 @@ const Login = ({ login, isAuthenticated }) => {
           login(email, password);
         }
     if(isAuthenticated){
-        return <Redirect to='/CoinSummary'/>
+        return <Redirect to='/watchlist'/>
     }
     return <Fragment>
             <h1 className="large text-primary">Sign In</h1>

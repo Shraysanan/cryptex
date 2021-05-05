@@ -26,8 +26,8 @@ const bcrypt = require('bcryptjs');
 //Public
 
 router.post('/',[ 
-    check('email', 'Please include a proper email').isEmail(), //email format
-    check('password', 'Password is required').exists()
+    // check('email', 'Please include a proper email').isEmail(), //email format
+    // check('password', 'Password is required').exists()
 ], async (req, res) =>{
     console.log(req.body);
     const errors = validationResult(req);
@@ -61,13 +61,16 @@ router.post('/',[
         }
     }
 
-    jwt.sign(payload,jwtSecret,
+    await jwt.sign(payload,jwtSecret,
     {expiresIn: 360000},//optional
     (err, token)=>{
         if(err){
             throw err;
         }else{
-            res.json({token});
+            // res.json({token});
+            console.log("mypayloadid" + payload.User.id);
+            res.send({"token":token,"userid":payload.User.id});
+
         }
     });
     // res.send('user registered')

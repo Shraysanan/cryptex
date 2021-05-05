@@ -11,6 +11,8 @@ import Login from './components/Login'
 // import Alert from './alerts/alert'
 import setauthtoken from './utils/setauthtoken'
 import {loaduser} from './actions/auth'
+import Nav from './components/Nav';
+import watchList from './components/watchlist'
 //Redux
 import {Provider} from 'react-redux';
 import store from './store';
@@ -33,11 +35,13 @@ const App = () => {
         <Provider store={store}>
           <WatchListContextProvider>
             <BrowserRouter>
+              <Nav/>
               <Header />
               {/* <Alert/> */}
               <Route exact path="/" component={Login} />
               <Route path="/register" component={register} />
               <Route path="/login" component={Login} />
+              <Route path="/watchlist" component={watchList}/>
               <Route path="/CoinSummary" component={CoinSummaryPage} />
               <Route path="/coins/:id" component={CoinDetailPage} />
             </BrowserRouter>

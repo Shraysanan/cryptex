@@ -20,3 +20,7 @@ database:-
 3)comments({user},date,time)
 
 
+upcoming task:-
+check /post/:id route
+delete edit posts
+delete edit comment  ---> done-----> (to check in postman now)

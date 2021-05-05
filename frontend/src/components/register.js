@@ -31,7 +31,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
     }
     //redirect if success
     if(isAuthenticated){
-        return <Redirect to='/CoinSummary'/>
+        return <Redirect to='/watchlist'/>
     }
     return <Fragment>
             <h1 className="large text-primary">Sign Up</h1>

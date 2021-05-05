@@ -1,6 +1,12 @@
 var mongoose=require("mongoose");
 var postSchema=new mongoose.Schema({
-  name:String,
+  author:{
+    id:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"User"
+    },
+    username:String
+  },
   Heading:String,
   description:String,
   comments:[

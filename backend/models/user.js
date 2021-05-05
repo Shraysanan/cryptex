@@ -6,7 +6,7 @@ const UserSchema=new mongoose.Schema({
   mywatchlist: [String],
   comments: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'comment'
+    ref: 'Comment'
     }],
 posts: [{
     type: mongoose.Schema.Types.ObjectId,

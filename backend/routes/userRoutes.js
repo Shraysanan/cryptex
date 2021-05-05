@@ -27,7 +27,8 @@ router.post('/',[
     // See if user exists
         // let nUser = await user.findOne({email});
         // if(nUser){
-        //     res.status(400).json({ errors: [{msg: 'User already exists'}] });
+        //     res.status(400);
+        //     // .json({ errors: [{msg: 'User already exists'}] });
         // }
 
         
@@ -40,14 +41,14 @@ router.post('/',[
             password
         });
 
-        console.log('before salt creation')
+        // console.log('before salt creation')
         const salt = await bcrypt.genSalt(10);
-        console.log('after salt creation')
-        console.log(password);
+        // console.log('after salt creation')
+        // console.log(password);
         User.password = await bcrypt.hash(password, salt);
-        console.log(' password hashed');
+        // console.log(' password hashed');
         await User.save();
-        console.log('after saving user');
+        // console.log('after saving user');
     //Return json webtoken
     
     const payload = {
@@ -59,19 +60,18 @@ router.post('/',[
     await jwt.sign(payload,jwtSecret,
     {expiresIn: 360000},//optional
     (err, token)=>{
-        console.log("inside payload function");
         if(err){
-            console.log("inside payload function 1");
             throw err;
         }else{
-            console.log("inside payload function 2");
+            res.send({"token":token,"userid":payload.User.id});
+
             console.log("token"+token);
             res.send({token});
 
             // console.log(token);
         }
     });
-    console.log(jwtSecret);
+    // console.log(jwtSecret);
     res.send('user registered')
 
     }catch(err){
