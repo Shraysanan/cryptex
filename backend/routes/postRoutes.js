@@ -3,6 +3,7 @@ var router = express.Router();
 const User = require('../models/user');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const { post } = require('./commentRoutes');
 
 //new discussion
 router.post('/create',async(req,res)=>{
@@ -70,6 +71,44 @@ router.get('/post/:id',async (req,res)=>{
     });
     
 });
+
+router.put('/editpost',async(req,res)=>{
+    const userId = req.header('userid');
+    const postId = req.header('postid');
+    const postauthorid = req.header('postauthorid');
+    //replace above headers with req.body logic later
+    console.log("ready to update");
+    if(userId==postauthorid){
+      Post.findByIdAndUpdate(postId,{ Heading: req.body.Heading ,description: req.body.description},(err,foundpost)=>{
+        if (err){
+          res.status(500).send(err);
+        } 
+        else {
+          foundpost.save();
+          res.status(200).send("post updated");
+        }
+      });
+    }
+  });
+
+
+router.delete("/deletepost", async (req, res)=>{
+    const userId = req.header('userid');
+    const postId = req.header('postid');
+    const postauthorid = req.header('postauthorid');
+    //replace above headers with req.body logic later
+    console.log("ready to delete");
+    if(userId==postauthorid){
+      Post.findByIdAndDelete(postId,(err,foundpost)=>{
+        if (err){
+          res.status(500).send(err);
+        } 
+        else {
+          res.status(200).send('post deleted');
+        }
+      });
+    }
+  });
 
 module.exports = router;
 

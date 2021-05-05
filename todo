@@ -21,6 +21,7 @@ database:-
 
 
 upcoming task:-
-check /post/:id route
-delete edit posts
-delete edit comment  ---> done-----> (to check in postman now)
+
+delete linked comments from post objects and linked posts from user objects
+change reference name to Comment in post schema
+machine learning

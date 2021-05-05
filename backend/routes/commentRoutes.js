@@ -58,42 +58,43 @@ router.post('/create',async(req,res)=>{
 //       res.status(200).send(post.comments);
 //     }
 // });
-
-// router.put('/editcomment',async(req,res)=>{
-//   const userId = req.header('userid');
-//   const commentId = req.header('commentid');
-//   const commentauthorid = req.header('commentauthorid');
-//   //replace above headers with req.body logic later
-//   console.log("ready to delete");
-//   if(userId==commentauthorid){
-//     Comment.findByIdAndUpdate(commentId,{ text: req.body.text },(err,foundcomment)=>{
-//       if (err){
-//         res.status(500).send(err);
-//       } 
-//       else {
-//         foundcomment.save();
-//         res.status(200).send("comment updated");
-//       }
-//     });
-//   }
 // });
 
-// router.delete("/deletecomment", async (req, res)=>{
-//   const userId = req.header('userid');
-//   const commentId = req.header('commentid');
-//   const commentauthorid = req.header('commentauthorid');
-//   //replace above headers with req.body logic later
-//   console.log("ready to delete");
-//   if(userId==commentauthorid){
-//     Comment.findByIdAndDelete(commentId,(err,foundcomment)=>{
-//       if (err){
-//         res.status(500).send(err);
-//       } 
-//       else {
-//         foundcomment.save();
-//       }
-//     });
-//   }
-// });
+router.put('/editcomment',async(req,res)=>{
+  const userId = req.header('userid');
+  const commentId = req.header('commentid');
+  const commentauthorid = req.header('commentauthorid');
+  //replace above headers with req.body logic later
+  console.log("ready to update");
+  if(userId==commentauthorid){
+    Comment.findByIdAndUpdate(commentId,{ text: req.body.text },(err,foundcomment)=>{
+      if (err){
+        res.status(500).send(err);
+      } 
+      else {
+        foundcomment.save();
+        res.status(200).send("comment updated");
+      }
+    });
+  }
+});
+
+router.delete("/deletecomment", async (req, res)=>{
+  const userId = req.header('userid');
+  const commentId = req.header('commentid');
+  const commentauthorid = req.header('commentauthorid');
+  //replace above headers with req.body logic later
+  console.log("ready to delete");
+  if(userId==commentauthorid){
+    Comment.findByIdAndDelete(commentId,(err,foundcomment)=>{
+      if (err){
+        res.status(500).send(err);
+      } 
+      else {
+        res.status(200).send('comment deleted');
+      }
+    });
+  }
+});
 
 module.exports = router;
