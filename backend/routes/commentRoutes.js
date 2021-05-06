@@ -43,22 +43,18 @@ router.post('/create',async(req,res)=>{
     });
 });
 
-//=====================================================================================
-//=====================================================================================
-//BELOW ROUTES ARE LEFT TO BE CHECKED ON POSTMAN
-
-// router.get('/getcomments',async(req,res)=>{
-//   const postId = req.header('postid');
-//   Post.findById(postId).populate("comments").exec(function(err,post){
-//     if(err){
-//       console.log(err);
-//       res.status(500).send(err);
-//     }
-//     else{
-//       res.status(200).send(post.comments);
-//     }
-// });
-// });
+router.get('/getcomments',async(req,res)=>{
+  const postId = req.header('postid');
+  Post.findById(postId).populate("comments").exec(function(err,post){
+    if(err){
+      console.log(err);
+      res.status(500).send(err);
+    }
+    else{
+      res.status(200).send(post.comments);
+    }
+});
+});
 
 router.put('/editcomment',async(req,res)=>{
   const userId = req.header('userid');
