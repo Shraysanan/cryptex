@@ -3,6 +3,9 @@ import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {login} from '../actions/auth';
+import { TextField } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import "./Login.css";
 
 const Login = ({ login, isAuthenticated }) => {
 
@@ -24,28 +27,50 @@ const Login = ({ login, isAuthenticated }) => {
         return <Redirect to='/watchlist'/>
     }
     return <Fragment>
-            <h1 className="large text-primary">Sign In</h1>
-            <p className="lead"><i className="fas fa-user"></i> Sign into your Account</p>
-            <form className="form" onSubmit= {e => onSubmit(e)}>
-                <div className="form-group">
-                <input type="email" placeholder="Email Address" name="email" value={email} onChange={e => onChange(e)} required />
+        <div className="signForm">
+            <div className="container bx">
+                <div className="col-6">
+                    <img className="loginImg" src="media/cryto.jpg" alt="alt image" />
                 </div>
-                <div className="form-group">
-                <input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    minLength="6"
-                    value={password} 
-                    onChange={e => onChange(e)}
-                />
+                <div className="col-6">
+                    <h1 className="large text-primary">Sign In</h1>
+                    <p className="lead"><i className="fas fa-user"></i> Sign into your Account</p>
+                    <form className="form" onSubmit= {e => onSubmit(e)}>
+                        <div className="form-group">
+                        <TextField
+                            required
+                            type="email"
+                            id="email"
+                            label="E Mail"
+                            value={email} 
+                            name="email" 
+                            onChange={e => onChange(e)} 
+                            variant="outlined"
+                        />
+                        </div>
+                        <div className="form-group">
+                        <TextField
+                            required
+                            type="password"
+                            id="password"
+                            label="Password"
+                            value={password} 
+                            name="password" 
+                            onChange={e => onChange(e)} 
+                            variant="outlined"
+                        />
+                        </div>
+                        <Button type="submit" variant="contained" color="primary"  value="Login">
+                            Log In
+                        </Button>
+                    </form>
+                    <p className="my-1">
+                        Don't have an account? <Link to="/register" className="themeText">Sign Up</Link>
+                    </p>
                 </div>
-                <input type="submit" className="btn btn-primary" value="Login"/>
-            </form>
-            <p className="my-1">
-                Don't have an account? <Link to="/register">Sign Up</Link>
-            </p>
 
+            </div>
+        </div>
         </Fragment>
 };
 

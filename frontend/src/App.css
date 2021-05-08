@@ -39,3 +39,17 @@ ul {
 .coin:hover .delete-icon {
   display: block;
 }
+
+.container0{
+  max-width: 100% !important;
+    padding: 0 !important;
+}
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

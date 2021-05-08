@@ -12,6 +12,7 @@ import {connect} from 'react-redux'
 import propTypes from 'prop-types'
 import {logout} from '../actions/auth'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import './Nav.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   links: {
       color: "white",
-  }
+  },
 }));
 
 const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
@@ -36,7 +37,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
   return (
     <div className={classes.root}>
 
-      <AppBar position="static">
+      <AppBar className="headtrans" position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Cryptex
