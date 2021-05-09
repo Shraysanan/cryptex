@@ -34,7 +34,9 @@ const App = () => {
     // console.log('hello from dispatch')
   }, []);
   return (
-    <div className="container">
+    <div className="container container0">
+      <video src="media/Plexus.mp4" autoPlay muted loop ></video>
+      
         <Provider store={store}>
           <WatchListContextProvider>
             <BrowserRouter>

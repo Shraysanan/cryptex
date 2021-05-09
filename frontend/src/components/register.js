@@ -4,6 +4,9 @@ import {Link, Redirect} from 'react-router-dom';
 import {setAlert} from '../actions/alert';
 import {register} from '../actions/auth';
 import PropTypes from 'prop-types'
+import { Button } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
+import "./register.css";
 
 
 const Register = ({setAlert, register, isAuthenticated}) => { 
@@ -34,45 +37,78 @@ const Register = ({setAlert, register, isAuthenticated}) => {
         return <Redirect to='/watchlist'/>
     }
     return <Fragment>
-            <h1 className="large text-primary">Sign Up</h1>
-            <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
-            <form className="form" onSubmit= {e => onSubmit(e)}>
-                <div className="form-group">
-                <input type="text" placeholder="Name" value={name} onChange={e => onChange(e)} name="name" required />
+        <div className="signForm">
+            <div className="container container1 bx">
+                <div className="col-6 col-sm-7 col-md-6">
+                    <img className="loginImg" src="media/exchange.jpg" alt="alt image" />
                 </div>
-                <div className="form-group">
-                <input type="email" placeholder="Email Address" name="email" value={email} onChange={e => onChange(e)} required />
-                <small className="form-text"
-                    >This site uses Gravatar so if you want a profile image, use a
-                    Gravatar email</small
-                >
+                <div className="col-6 col-sm-5 col-md-6">
+                    <h1 className="large themeText" >Sign Up</h1>
+                    <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
+                    <form className="form" onSubmit= {e => onSubmit(e)}>
+                        <div className="form-group">
+                        <TextField
+                            required
+                            id="name"
+                            label="Name"
+                            value={name} 
+                            name="name" 
+                            onChange={e => onChange(e)} 
+                            variant="outlined"
+                        />
+                        </div>
+                        <div className="form-group">
+            
+                        <TextField
+                            required
+                            id="email"
+                            type="email"
+                            label="Email Id"
+                            value={email} 
+                            name="email" 
+                            onChange={e => onChange(e)} 
+                            variant="outlined"
+                        />
+                        <small className="form-text"
+                            >This site uses Gravatar so if you want a profile image, use a
+                            Gravatar email</small
+                        >
+                        </div>
+                        <div className="form-group">
+                        <TextField
+                            required
+                            id="password"
+                            type="password"
+                            label="Password"
+                            value={password} 
+                            name="password" 
+                            onChange={e => onChange(e)} 
+                            variant="outlined"
+                        />
+                        </div>
+                        <div className="form-group">
+                        <TextField
+                            required
+                            id="password2"
+                            type="password"
+                            label="Confirm Password"
+                            value={password2} 
+                            name="password2" 
+                            onChange={e => onChange(e)} 
+                            variant="outlined"
+                        />
+                        </div>
+                        <Button type="submit" variant="contained" color="primary"  value="Register">
+                            Register
+                        </Button>
+                    </form>
+                    <p className="my-1">
+                        Already have an ascount? <Link className="themeText" to="/login">Sign In</Link>
+                    </p>                   
                 </div>
-                <div className="form-group">
-                <input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    minLength="6"
-                    value={password} 
-                    onChange={e => onChange(e)}
-                />
+ 
                 </div>
-                <div className="form-group">
-                <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    name="password2"
-                    minLength="6"
-                    value={password2} 
-                    onChange={e => onChange(e)}
-                />
-                </div>
-                <input type="submit" className="btn btn-primary" value="Register"/>
-            </form>
-            <p className="my-1">
-                Already have an ascount? <Link to="/login">Sign In</Link>
-            </p>
-
+            </div>
         </Fragment>
 }
 

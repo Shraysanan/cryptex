@@ -1,0 +1,25 @@
+
+
+.signForm{
+    text-align: center;
+    color: rgb(73, 73, 73);
+}
+
+.themeText{
+    color: #3f51b5;
+}
+
+.bx{
+    background: #f7f7f7d4;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+}
+.loginImg{
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+}
+
+.MuiInputBase-input {
+    width: 100%;
+}
