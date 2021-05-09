@@ -60,3 +60,4 @@ const mapstatetoprop = state => ({
 
 export default connect(mapstatetoprop,{login})(Login);
 
+

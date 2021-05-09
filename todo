@@ -23,5 +23,5 @@ database:-
 upcoming task:-
 
 delete linked comments from post objects and linked posts from user objects
-change reference name to Comment in post schema
+process json from newscatcher into a page with heading summary and readmore directing to link
 machine learning

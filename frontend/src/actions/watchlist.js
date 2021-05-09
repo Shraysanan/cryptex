@@ -25,7 +25,7 @@ export const getWatchList = (userid) => async (dispatch) => {
     try {
         // console.log('inside action')
         const res = await axios.get('http://localhost:5000/watchlist');
-        console.log('res'+res);
+        console.log('res'+ res);
         dispatch({
             type: GETWATCHLIST,
             payload: res.data
@@ -35,7 +35,7 @@ export const getWatchList = (userid) => async (dispatch) => {
     } catch (err) {
         dispatch({
             type: WATHCLISTERROR,
-            payload:{msg: err.response.statueText, status: err.response.status}
+            payload:{msg: err.response.statusText, status: err.response.status}
         })
         if(err){
             console.log(err);

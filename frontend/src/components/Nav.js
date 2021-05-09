@@ -43,6 +43,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
           </Typography>
           {!isAuthenticated && (
             <div>
+              <Link to="/ShowWatchList">ShowWatchList</Link>
               <a href="/register" className={classes.links} >
                 <IconButton
                     aria-label="account of current user"
@@ -70,6 +71,8 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
 
             {isAuthenticated && (
             <div>
+              <Link to="/ShowWatchList">ShowWatchList</Link>
+
                 <a href="/" className={classes.links} >
               <IconButton
                 aria-label="account of current user"

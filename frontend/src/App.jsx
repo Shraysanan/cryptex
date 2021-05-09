@@ -13,10 +13,13 @@ import setauthtoken from './utils/setauthtoken'
 import {loaduser} from './actions/auth'
 import Nav from './components/Nav';
 import watchList from './components/watchlist'
+import newscatcher from './components/newscatcher'
 //Redux
 import {Provider} from 'react-redux';
 import store from './store';
 import register from "./components/register";
+import ShowWatchList from "./components/ShowWatchList";
+
 
 
 
@@ -40,6 +43,8 @@ const App = () => {
               {/* <Alert/> */}
               <Route exact path="/" component={Login} />
               <Route path="/register" component={register} />
+              <Route path="/ShowWatchList" component={ShowWatchList} />
+              <Route path="/newscatcher" component={newscatcher} />
               <Route path="/login" component={Login} />
               <Route path="/watchlist" component={watchList}/>
               <Route path="/CoinSummary" component={CoinSummaryPage} />

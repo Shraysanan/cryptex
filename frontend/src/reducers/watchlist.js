@@ -8,15 +8,16 @@ const initialState ={
     error:{}
 }
 
-export default function( state = initialState, action) {
+export const getWatchlist = ( state = initialState, action) => {
     const {type ,payload} = action
 
 
     switch(type) {
         case GETWATCHLIST:
+            console.log('initial watchList',payload);
             return{
                 ...state,
-                mywatchlist: payload,
+                mywatchlist:[...payload],
                 loading: false
             }
         case WATHCLISTERROR:
