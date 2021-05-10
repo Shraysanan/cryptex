@@ -49,11 +49,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                   <option value="bitcoin">bitcoin</option>
                   <option value="etherium">etherium</option>
                   <option value="xyz">xyz</option>
-                </select>
-                  <ul>
-                  { 
-                  }
-                </ul>  
+                </select> 
                 <input type="submit" className="btn btn-primary" value="Submit"/>
             </form>
            

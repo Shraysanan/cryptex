@@ -1,16 +1,17 @@
 import React from 'react'
 
 const NewsCatcherItem = props => {
-    console.log(props.newsItem)
-    const {newsItem} = props
-    console.log(newsItem.length)
-    if(newsItem.length > 0) {
+    console.log(props.responseData)
+    const {responseData} = props
+    console.log(responseData.length)
+    if(responseData.length > 0) {
         return(
-            newsItem.map((list) => {
+            responseData.map((list) => {
                 console.log(list);
             return(
                 <div key={list._id}>
-                    <p>{list}</p>
+                    <p>{list.summary}</p>
+
                 </div>
             )
         })

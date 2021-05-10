@@ -7,8 +7,11 @@ import NewsCatcherItem from './NewsCatcherItem'
 
 const NewsCatcher = () => {
 
-  
+var data
 const  [mywatchlistarray, setWatchList] = useState([]);
+
+const  [responseData, setresponseData] = useState([]);
+
 
 const config = {
   headers:{
@@ -29,8 +32,6 @@ const url = 'http://localhost:5000/watchlist';
 const getCurrentUserWatchlist = () => {
     axios.get(url, config).then((response) => {
         console.log(response.data);
-        const arr = response.data;
-        console.log('temp arr',arr)
         setWatchList(response.data);
         // setWatchList(...arr);
         console.log("after setting",mywatchlistarray)
@@ -41,33 +42,57 @@ useEffect(()=>{
   console.log("jdhdh",mywatchlistarray)
 var mywatchliststring=mywatchlistarray.toString();
 var mysearchstring=mywatchliststring.split(",").join(" ");
-const options = {
+const options =  {
   method: 'GET',
-  url: 'https://free-news.p.rapidapi.com/v1/search',
-  params: {q: mysearchstring, lang: 'en', page: '1', page_size: '25'},
+  url: 'https://newscatcher.p.rapidapi.com/v1/search_free',
+  params: {q: mysearchstring, lang: 'en', media: 'True'},
   headers: {
     'x-rapidapi-key': '3f33cf7854msh3bc0ff7a7c8b66cp11bd4ejsn8da95c54107f',
-    'x-rapidapi-host': 'free-news.p.rapidapi.com'
+    'x-rapidapi-host': 'newscatcher.p.rapidapi.com'
   }
 };
+if(mywatchlistarray.length){
+
+
 
 axios.request(options).then(function (response) {
     console.log(response.data.articles);
+    data = response.data.articles;
+    setresponseData(data);
+    console.log(responseData);
+    console.log('temp data',data)
+
+
 }).catch(function (error) {
     console.error(error);
 });
+}
 },[mywatchlistarray])
 
 useEffect(() => {
 getCurrentUserWatchlist();  
-}, [getCurrentUserWatchlist])
+}, [])
 
 
-    return (
-        <div>
-            <NewsCatcherItem newsItem={mywatchlistarray}/>
-        </div>
+    return(
+      <NewsCatcherItem responseData={responseData}/>
     )
+      
+//           {/* <NewsCatcherItem /> */}
+//          { if(data.length){
+//             return(
+//               <h1>{data[0].summary}</h1>
+
+          
+//           )}else{
+//               return (
+//                 <h1>error</h1>
+//               )
+//             }
+            
+//         }
+       
+    
 }
 
 export default NewsCatcher

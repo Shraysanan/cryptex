@@ -73,6 +73,8 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
             {isAuthenticated && (
             <div>
               <Link to="/ShowWatchList">ShowWatchList</Link>
+              <Link to="/newscatcher">newcatcher</Link>
+
 
                 <a href="/" className={classes.links} >
               <IconButton
