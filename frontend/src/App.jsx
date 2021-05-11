@@ -14,11 +14,14 @@ import {loaduser} from './actions/auth'
 import Nav from './components/Nav';
 import watchList from './components/watchlist'
 import NewsCatcher from './components/NewsCatcher'
+import PrivateRoute from './components/routing/PrivateRoute'
 //Redux
 import {Provider} from 'react-redux';
 import store from './store';
 import register from "./components/register";
 import ShowWatchList from "./components/ShowWatchList";
+import Posts from "./components/Posts";
+import CurrentUserPost from "./components/CurrentUserPost";
 
 
 
@@ -45,10 +48,16 @@ const App = () => {
               {/* <Alert/> */}
               <Route exact path="/" component={Login} />
               <Route path="/register" component={register} />
-              <Route path="/ShowWatchList" component={ShowWatchList} />
-              <Route path="/NewsCatcher" component={NewsCatcher} />
+              {/* <Route path="/ShowWatchList" component={ShowWatchList} /> */}
+              <PrivateRoute exact path="/ShowWatchlist" component={ShowWatchList}/>
+              <PrivateRoute exact path="/NewsCatcher" component={NewsCatcher}/>
+              <PrivateRoute exact path="/watchlist" component={watchList}/>
+              <PrivateRoute exact path="/createPost" component={Posts}/>
+              <PrivateRoute exact path = "/getpost" component={CurrentUserPost}/>
+              
+              {/* <Route path="/NewsCatcher" component={NewsCatcher} /> */}
               <Route path="/login" component={Login} />
-              <Route path="/watchlist" component={watchList}/>
+              {/* <Route path="/watchlist" component={watchList}/> */}
               <Route path="/CoinSummary" component={CoinSummaryPage} />
               <Route path="/coins/:id" component={CoinDetailPage} />
             </BrowserRouter>

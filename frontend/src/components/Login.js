@@ -24,7 +24,7 @@ const Login = ({ login, isAuthenticated }) => {
           login(email, password);
         }
     if(isAuthenticated){
-        return <Redirect to='/watchlist'/>
+        return <Redirect to='/ShowWatchList'/>
     }
     return <Fragment>
         <div className="signForm">

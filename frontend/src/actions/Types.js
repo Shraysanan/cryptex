@@ -9,5 +9,8 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGOUT = 'LOGOUT';
 export const GETWATCHLIST = 'GETWATCHLIST';
 export const WATHCLISTERROR = 'WATCHLISTERROR';
+export const POSTCREATED = 'POSTCREATED';
+export const GETMYPOST = 'GETMYPOST';
+
 
 

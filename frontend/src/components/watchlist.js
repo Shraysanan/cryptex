@@ -8,6 +8,12 @@ import {getWatchList, putWatchList } from '../actions/watchlist'
 import {GETWATCHLIST, WATHCLISTERROR} from '../actions/Types'
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import SaveIcon from '@material-ui/icons/Save';
+import Button from '@material-ui/core/Button';
+import "./watchlist.css";
 
 const initialState ={
   mywatchlist: [],
@@ -15,11 +21,33 @@ const initialState ={
   error:{}
 }
 const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
-  
 
+  var mywatchlist = new Array();
+
+  const [state, setState] = React.useState({
+    checkedBitcoin: false,
+    checkedEtherium: false,
+    checkedDogeCoin: false,
+    mywatchlist:[]
+  });
   const {selectValue, setselectValue} = useState({
     mywatchlist:[]
   });
+  const handleChange = (event) => {
+    // console.log(mywatchlist)
+    const checked = event.target.checked
+    if(checked){
+      const val = event.target.value
+      mywatchlist.push(val)
+    }else{
+      var remove_element=mywatchlist.indexOf(event.target.value);
+      let removed = mywatchlist.splice(remove_element,1)
+    }
+    console.log('updated' + mywatchlist)
+  ;
+  };
+
+
 
   // this.selectValue = this.selectValue.bind(this);
   //  useEffect(() => {
@@ -35,24 +63,90 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
       
       putWatchList(mywatchlist)
     }
-    var mywatchlist = new Array();
-    function handleChange(e){ 
-      const val = e.target.value;
-      // console.log(val)
-      mywatchlist.push(val);
-    }
    
     return (
         <Fragment>
-            <form onSubmit={handleSubmit}>
-                <select value={mywatchlist} onChange={handleChange} multiple={true}>
-                  <option value="bitcoin">bitcoin</option>
-                  <option value="etherium">etherium</option>
-                  <option value="xyz">xyz</option>
-                </select> 
-                <input type="submit" className="btn btn-primary" value="Submit"/>
-            </form>
-           
+          <div className="cont">
+                <form className="items" onSubmit={handleSubmit}>
+                  <h2>Select Cryptocurrencies to follow !</h2>
+                  <FormControlLabel 
+                    control={
+                      <Checkbox
+                        
+                        onChange={handleChange}
+                        name="checkedBitcoin"
+                        color="primary"
+                        value="bitcoin"
+                      />
+                    }
+                    label={
+                      <>
+                          <img src="media/btc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <h4 className="textp"> BitCoin</h4>
+  
+                      </>
+                    }
+                  />
+                  <FormControlLabel 
+                    control={
+                      <Checkbox
+                        onChange={handleChange}
+                        name="checkedEtherium"
+                        color="primary"
+                        value="etherium"
+                      />
+                    }
+                    label={
+                      <>
+                          <img src="media/eth.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <h4 className="textp"> Etherium</h4>
+  
+                      </>
+                    }
+                  />
+                  <FormControlLabel 
+                    control={
+                      <Checkbox
+                        onChange={handleChange}
+                        name="checkedDogeCoin"
+                        color="primary"
+                        value="DogeCoin"
+                      />
+                    }
+                    label={
+                      <>
+                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                         <h4 className="textp"> DogeCoin</h4>
+  
+                      </>
+                    }
+                  />
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    value="Submit"
+                    type="submit"
+                    startIcon={<SaveIcon />}
+                  >
+                    Save
+                  </Button>                  
+                </form>
+
+
+              {/* <form >
+                  <select value={mywatchlist} onChange={handleChange} multiple={true}>
+                    <option value="bitcoin">bitcoin</option>
+                    <option value="etherium">etherium</option>
+                    <option value="DogeCoin">DogeCoin</option>
+                  </select>
+                    <ul>
+                    { 
+                    }
+                  </ul>  
+                  <input type="submit" className="btn btn-primary" value="Submit"/>
+              </form> */}
+          </div>
         </Fragment>
     )
     }

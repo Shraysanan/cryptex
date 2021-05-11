@@ -44,7 +44,6 @@ router.get('/allposts',async (req,res)=>{
 });
 
 
-
 router.get('/myposts',async (req,res)=>{
     const userId = req.header('userid');
     User.findById(userId).populate("posts").exec(function(err,user){

@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
+import { Button } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import {setAlert} from '../actions/alert';
 import {register} from '../actions/auth';
-import PropTypes from 'prop-types'
-import { Button } from '@material-ui/core';
-import { TextField } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import "./register.css";
 
 
@@ -69,10 +69,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
                             onChange={e => onChange(e)} 
                             variant="outlined"
                         />
-                        <small className="form-text"
-                            >This site uses Gravatar so if you want a profile image, use a
-                            Gravatar email</small
-                        >
+                        
                         </div>
                         <div className="form-group">
                         <TextField

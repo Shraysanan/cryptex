@@ -1,0 +1,19 @@
+.cont{
+    text-align: center;
+    background: #f7f7f7d4;
+    padding: 2rem;
+    border-radius: 2rem;
+    width: 62%;
+    margin: auto;
+}
+.items{
+    display: grid;
+}
+
+.textp{
+    display: inline ;
+}
+
+h2{
+    margin-bottom: 2rem;
+}
