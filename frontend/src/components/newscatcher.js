@@ -75,7 +75,9 @@ getCurrentUserWatchlist();
 
 
     return(
+      <div className="newsList row">
       <NewsCatcherItem responseData={responseData}/>
+      </div>
     )
       
 //           {/* <NewsCatcherItem /> */}

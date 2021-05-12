@@ -1,0 +1,31 @@
+.items{
+    background: #ffffffa6;
+    color: black;
+    padding: 1rem;
+    margin: 0 0.2rem;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+}
+.newsImg{
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    height: auto;
+}
+.author{
+    color: red;
+    font-size: 18px;
+}
+svg{
+    vertical-align: top;
+}
+.topic{
+    color: #3f51b5;
+    background: #ffff55bf;
+    font-size: 16px;
+    margin-left: 10px;
+    padding-right: 6px;
+    border-radius: 13px;
+}
+.sum{
+    font-weight: 500;
+}
