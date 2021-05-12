@@ -13,7 +13,7 @@ import setauthtoken from './utils/setauthtoken'
 import {loaduser} from './actions/auth'
 import Nav from './components/Nav';
 import watchList from './components/watchlist'
-import NewsCatcher from './components/NewsCatcher'
+import NewsCatcher from './components/newscatcher'
 import PrivateRoute from './components/routing/PrivateRoute'
 //Redux
 import {Provider} from 'react-redux';
