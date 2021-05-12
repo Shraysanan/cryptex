@@ -33,6 +33,9 @@ router.post('/create',async(req,res)=>{
       });  
 });
 
+
+//show all posts
+
 router.get('/allposts',async (req,res)=>{
     Post.find({}, async (err,posts)=>{
         if(err){
@@ -43,6 +46,7 @@ router.get('/allposts',async (req,res)=>{
     })
 });
 
+//show current user posts
 
 router.get('/myposts',async (req,res)=>{
     const userId = req.header('userid');
@@ -55,6 +59,8 @@ router.get('/myposts',async (req,res)=>{
         }
     });
 });
+
+
 
 router.get('/post/:id',async (req,res)=>{
     const postId = req.params.id;

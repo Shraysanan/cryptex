@@ -22,6 +22,7 @@ import register from "./components/register";
 import ShowWatchList from "./components/ShowWatchList";
 import Posts from "./components/Posts";
 import CurrentUserPost from "./components/CurrentUserPost";
+import ShowAllPosts from './components/ShowAllPosts'
 
 
 
@@ -48,6 +49,7 @@ const App = () => {
               {/* <Alert/> */}
               <Route exact path="/" component={Login} />
               <Route path="/register" component={register} />
+              <Route path="/ShowAllPosts" component={ShowAllPosts}/>
               {/* <Route path="/ShowWatchList" component={ShowWatchList} /> */}
               <PrivateRoute exact path="/ShowWatchlist" component={ShowWatchList}/>
               <PrivateRoute exact path="/NewsCatcher" component={NewsCatcher}/>
