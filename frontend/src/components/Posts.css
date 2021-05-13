@@ -1,0 +1,19 @@
+.form2{
+    background: #f7f7f7d4;
+    margin: 0 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+
+.root{
+    max-width: 75vw;
+    margin: auto;
+    background: #f7f7f7d4;
+    border-radius: 1rem;
+}
+.postsImg{
+    width: 90%;
+    margin: auto;
+    border-radius: 1rem;
+}
