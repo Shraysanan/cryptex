@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const AllPostItem = props => {
     console.log(props.posts)
@@ -9,10 +10,14 @@ const AllPostItem = props => {
             posts.map((list) => {
                 console.log(list._id);
             return(
+                <>
                 <div key={list._id}>
                     <h1>{list.Heading}</h1>
                     <p>{list.description}</p>
                 </div>
+                <Link to={`/readmore/${list._id}`}>Read More</Link>
+
+                </>
             )
         })
         )

@@ -79,6 +79,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
               <Link to="/watchlist">Edit</Link>
               <Link to="/createpost" className={classes.links} >create Post</Link>
               <Link to="/getpost" className={classes.links} >get Post</Link>
+              <Link to="/ShowAllPosts">Discussion</Link>
 
               
 

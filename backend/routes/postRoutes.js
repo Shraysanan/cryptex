@@ -3,7 +3,7 @@ var router = express.Router();
 const User = require('../models/user');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-const { post } = require('./commentRoutes');
+    const { post } = require('./commentRoutes');
 
 //new discussion
 router.post('/create',async(req,res)=>{
@@ -65,7 +65,7 @@ router.get('/myposts',async (req,res)=>{
 router.get('/post/:id',async (req,res)=>{
     const postId = req.params.id;
     console.log(req.params);
-    Post.findById(postId).populate("comment").exec(function(err,post){
+    Post.findById(postId).populate("comments").exec(function(err,post){
         //populate comments later
         if(err){
             console.log(err);

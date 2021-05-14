@@ -7,5 +7,5 @@ import {getWatchlist} from './watchlist'
 
 export default combineReducers({
     auth,
-    getWatchlist
+    getWatchlist,
 });

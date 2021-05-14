@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import AllPostItem from './AllPostItem'
-
+import "./ShowAllPosts.css"
 
 
 const ShowAllPosts = () => {
@@ -21,7 +21,7 @@ const ShowAllPosts = () => {
         allPosts()
     }, [])
     return (
-        <div>
+        <div className="PostsList">
             <AllPostItem posts={posts}/>
         </div>
     )

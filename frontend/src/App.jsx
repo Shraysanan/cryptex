@@ -23,6 +23,7 @@ import ShowWatchList from "./components/ShowWatchList";
 import Posts from "./components/Posts";
 import CurrentUserPost from "./components/CurrentUserPost";
 import ShowAllPosts from './components/ShowAllPosts'
+import Readmore from './components/Readmore'
 
 
 
@@ -49,13 +50,15 @@ const App = () => {
               {/* <Alert/> */}
               <Route exact path="/" component={Login} />
               <Route path="/register" component={register} />
-              <Route path="/ShowAllPosts" component={ShowAllPosts}/>
+              <PrivateRoute path="/ShowAllPosts" component={ShowAllPosts}/>
               {/* <Route path="/ShowWatchList" component={ShowWatchList} /> */}
               <PrivateRoute exact path="/ShowWatchlist" component={ShowWatchList}/>
               <PrivateRoute exact path="/NewsCatcher" component={NewsCatcher}/>
               <PrivateRoute exact path="/watchlist" component={watchList}/>
               <PrivateRoute exact path="/createPost" component={Posts}/>
               <PrivateRoute exact path = "/getpost" component={CurrentUserPost}/>
+              <PrivateRoute exact path = "/readmore/:id" component={Readmore}/>
+
               
               {/* <Route path="/NewsCatcher" component={NewsCatcher} /> */}
               <Route path="/login" component={Login} />

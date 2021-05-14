@@ -5,6 +5,7 @@ import {MyPost} from '../actions/Posts'
 import PostItem from './PostItem'
 import axios from 'axios'
 import setauthtoken from '../utils/setauthtoken';
+import "./CurrentUserPost.css"
 
 
 const CurrentUserPost = () => {
@@ -42,7 +43,7 @@ const CurrentUserPost = () => {
     }, [])
     
     return (
-        <div>
+        <div className="PostsList">
             <PostItem mypost={mypost}/>
         </div>
     )
