@@ -1,30 +1,42 @@
 import React, {useState, Fragment} from 'react'
 import {connect} from 'react-redux'
-import axios from 'axios'
 import {CommentCreated} from '../actions/CommentCreated'
 import PropTypes from 'prop-types'
-
+import {useParams, useHistory, Redirect} from 'react-router-dom'
 
 const CreateComment = ({CommentCreated, isAuthenticated}) => {
+    const history = useHistory()
+    let {id} = useParams()
+    let link = `/readmore/${id}`
     const [formData, SetFormData] = useState({
         
         description:''
      });
+     const [redirect, setRedirect] = useState({
+         redirect:false
+     })
  
      const {description} = formData;
+     
  
      const onChange = e => SetFormData({...formData, [e.target.name]:e.target.value});
  
      const onSubmit = async e =>{
         e.preventDefault();
-         CommentCreated({description});
- 
+        CommentCreated({description, id})
+        // setRedirect(true)
+        // if(redirect){
+        //     return <Redirect to={link}/>
+        // }
+        // <Redirect to={link}/>
+        // history.push(link)
+        // window.location.reload();
      }
      return (
          <Fragment>
             <form className="form" onSubmit= {e => onSubmit(e)}>
                          <div className="form-group">
-                             <label>Body</label>
+                             <label>Comment</label>
                              <input type="text" name="description" value={description} onChange={e => onChange(e)}></input>
  
                              <button type="submit" variant="contained" color="primary"  value="Post">
@@ -38,7 +50,7 @@ const CreateComment = ({CommentCreated, isAuthenticated}) => {
 
 CreateComment.propTypes = {
     isAuthenticated: PropTypes.bool,
-
+    CommentCreated: PropTypes.func.isRequired
 }
 
 const maptstatetoprops = state => ({

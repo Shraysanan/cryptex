@@ -37,7 +37,7 @@ router.post('/create',async(req,res)=>{
 //show all posts
 
 router.get('/allposts',async (req,res)=>{
-    Post.find({}, async (err,posts)=>{
+    Post.find({}).sort({date:-1}).exec((err,posts)=>{
         if(err){
             res.status(500).send(err)
         }else{
@@ -45,6 +45,9 @@ router.get('/allposts',async (req,res)=>{
         }
     })
 });
+
+// Post.find().sort({date:-1}, function(err, posts){
+// });
 
 //show current user posts
 

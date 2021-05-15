@@ -22,7 +22,7 @@ const AllPostItem = props => {
         })
         )
     }else{
-        return <h3>no list</h3>
+        return <h3>nothing of interest here </h3>
     }
 }
 

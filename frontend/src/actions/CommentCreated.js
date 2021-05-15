@@ -2,13 +2,15 @@ import axios from 'axios'
 import {COMMENTCREATED, GETMYCOMMENT, GETMYPOST} from './Types'
 import setauthtoken from '../utils/setauthtoken'
 
-export const CommentCreated = ({ description}) => async dispatch => {
+export const CommentCreated = ({ description,  id}) => async dispatch => {
+    
+    console.log(id)
     const config = {
         headers:{
             'Content-Type': 'application/json',
             'x-auth-token': localStorage.token,
             'userid': localStorage.userid,
-            'postid': localStorage.postid
+            'postid': id
         }
     }
     if(localStorage.token){
@@ -25,12 +27,12 @@ export const CommentCreated = ({ description}) => async dispatch => {
         delete axios.defaults.headers.common['x-auth-token'];
     }
     console.log('inside action',localStorage.userid,localStorage.token, localStorage.postid);
-    const post = {Comment:{description}};
-    const body = JSON.stringify(post);
+    const comment = {text:description};
+    const body = JSON.stringify(comment);
 
     try {
-        const res = axios.post('http://localhost:5000/discussion/create', body, config)
-        console.log('res'+ res);
+        const res = axios.post('http://localhost:5000/comment/create', body, config).then((response) => {console.log(response)})
+        
         dispatch({
             type:COMMENTCREATED,
             payload: res.data

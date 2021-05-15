@@ -9,6 +9,7 @@ var postSchema=new mongoose.Schema({
   },
   Heading:String,
   description:String,
+  date:{ type: Date, default: Date.now },
   comments:[
     {
       type:mongoose.Schema.Types.ObjectId,
