@@ -33,7 +33,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
         }
     }
     //redirect if success
-    if(isAuthenticated){
+    if(localStorage.userid){
         return <Redirect to='/watchlist'/>
     }
     return <Fragment>

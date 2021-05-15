@@ -44,6 +44,7 @@ router.post('/create',async(req,res)=>{
 });
 
 router.get('/getcomments',async(req,res)=>{
+  console.log(req.header('postid'));
   const postId = req.header('postid');
   Post.findById(postId).populate("comments").exec(function(err,post){
     if(err){
@@ -51,6 +52,7 @@ router.get('/getcomments',async(req,res)=>{
       res.status(500).send(err);
     }
     else{
+      console.log(postId);
       res.status(200).send(post.comments);
     }
 });

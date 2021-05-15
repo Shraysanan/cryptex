@@ -10,7 +10,7 @@ import { WatchListContextProvider } from "./context/watchListContext";
 import Login from './components/Login'
 // import Alert from './alerts/alert'
 import setauthtoken from './utils/setauthtoken'
-import {loaduser} from './actions/auth'
+// import {loaduser} from './actions/auth'
 import Nav from './components/Nav';
 import watchList from './components/watchlist'
 import NewsCatcher from './components/newscatcher'
@@ -31,13 +31,12 @@ import Readmore from './components/Readmore'
 if (localStorage.token) {
   setauthtoken(localStorage.token)
 }
-  
 
 const App = () => {
-  useEffect( ()=>{
-    store.dispatch(loaduser())
-    // console.log('hello from dispatch')
-  }, []);
+  // useEffect( ()=>{
+  //   store.dispatch(loaduser())
+  //   // console.log('hello from dispatch')
+  // }, []);
   return (
     <div className="container container0">
       <video src="media/Plexus.mp4" autoPlay muted loop ></video>

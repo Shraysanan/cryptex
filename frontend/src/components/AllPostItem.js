@@ -24,9 +24,6 @@ const AllPostItem = props => {
                         <Link to={`/readmore/${list._id}`}>Read More</Link>
                     </div>
                 </div>
-
-                
-
                 </>
             )
         })

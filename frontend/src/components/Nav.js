@@ -42,7 +42,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
           <Typography variant="h6" className={classes.title}>
             Cryptex
           </Typography>
-          {!isAuthenticated && (
+          {!localStorage.userid && (
             <div>
               {/* <Link to="/ShowWatchList">ShowWatchList</Link> */}
               <Link to ="/ShowAllPosts" >Discussions</Link>
@@ -72,7 +72,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
             </div>
           )}
 
-            {isAuthenticated && (
+            {localStorage.userid && (
             <div>
               <Link to="/ShowWatchList">ShowWatchList</Link>
               <Link to="/newscatcher">newcatcher</Link>

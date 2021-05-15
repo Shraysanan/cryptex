@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const setuserid = token => {
-    if(token){
-        axios.defaults.headers.common['x-auth-token'] = token;
+const setuserid = userid => {
+    if(userid){
+        axios.defaults.headers.common['userid'] = userid;
         // console.log(token)
     }else{
-        delete axios.defaults.headers.common['x-auth-token'];
+        delete axios.defaults.headers.common['userid'];
     }
 }
 

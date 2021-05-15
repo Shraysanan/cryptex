@@ -24,7 +24,7 @@ const Login = ({ login, isAuthenticated }) => {
         e.preventDefault(); //since its a submit
           login(email, password);
         }
-    if(isAuthenticated){
+    if(localStorage.userid){
         return <Redirect to='/ShowWatchList'/>
     }
     return <Fragment>

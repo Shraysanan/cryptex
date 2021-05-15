@@ -15,23 +15,23 @@ import setauthtoken from '../utils/setauthtoken';
 
 //load user
 
-export const loaduser = () => async dispatch =>{
-    if(localStorage.token){
-        setauthtoken(localStorage.token)
-    }
-    try {
-        const res = await axios.get('http://localhost:5000/login');
-        dispatch({
-            type: USER_LOADED,
-            payload: res.data
-        });
-    } catch (err) {
-        console.log(err)
-        dispatch({
-            type: AUTH_ERROR
-        })        
-    }
-}
+// export const loaduser = () => async dispatch =>{
+//     if(localStorage.token){
+//         setauthtoken(localStorage.token)
+//     }
+//     try {
+//         const res = await axios.get('http://localhost:5000/login');
+//         dispatch({
+//             type: USER_LOADED,
+//             payload: res.data
+//         });
+//     } catch (err) {
+//         console.log(err)
+//         dispatch({
+//             type: AUTH_ERROR
+//         })        
+//     }
+// }
 
 // Register user
 
@@ -91,12 +91,12 @@ export const login = (email, password) => async dispatch => {
             payload: res.data
         });
         //  dispatch(loaduser());
-    } catch (err) {;
+    } catch (err) {
 
-        const errors = err.response.data.errors;
-        if(errors){
-            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-        }
+        // const errors = err.response.data.errors;
+        // if(errors){
+        //     errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+        // }
         dispatch({
             type: LOGIN_FAILURE
         });
