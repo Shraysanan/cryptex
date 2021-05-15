@@ -6,6 +6,7 @@ import {login} from '../actions/auth';
 import { TextField } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import "./Login.css";
+import Header from "./Header";
 
 const Login = ({ login, isAuthenticated }) => {
 
@@ -27,50 +28,53 @@ const Login = ({ login, isAuthenticated }) => {
         return <Redirect to='/ShowWatchList'/>
     }
     return <Fragment>
-        <div className="signForm">
-            <div className="container bx">
-                <div className="col-6">
-                    <img className="loginImg" src="media/cryto.jpg" alt="alt image" />
-                </div>
-                <div className="col-6">
-                    <h1 className="large text-primary">Sign In</h1>
-                    <p className="lead"><i className="fas fa-user"></i> Sign into your Account</p>
-                    <form className="form" onSubmit= {e => onSubmit(e)}>
-                        <div className="form-group">
-                        <TextField
-                            required
-                            type="email"
-                            id="email"
-                            label="E Mail"
-                            value={email} 
-                            name="email" 
-                            onChange={e => onChange(e)} 
-                            variant="outlined"
-                        />
-                        </div>
-                        <div className="form-group">
-                        <TextField
-                            required
-                            type="password"
-                            id="password"
-                            label="Password"
-                            value={password} 
-                            name="password" 
-                            onChange={e => onChange(e)} 
-                            variant="outlined"
-                        />
-                        </div>
-                        <Button type="submit" variant="contained" color="primary"  value="Login">
-                            Log In
-                        </Button>
-                    </form>
-                    <p className="my-1">
-                        Don't have an account? <Link to="/register" className="themeText">Sign Up</Link>
-                    </p>
-                </div>
+        <>
+            <Header/>
+            <div className="signForm">
+                <div className="container bx">
+                    <div className="col-6">
+                        <img className="loginImg" src="media/cryto.jpg" alt="alt image" />
+                    </div>
+                    <div className="col-6">
+                        <h1 className="large text-primary">Sign In</h1>
+                        <p className="lead"><i className="fas fa-user"></i> Sign into your Account</p>
+                        <form className="form" onSubmit= {e => onSubmit(e)}>
+                            <div className="form-group">
+                            <TextField
+                                required
+                                type="email"
+                                id="email"
+                                label="E Mail"
+                                value={email} 
+                                name="email" 
+                                onChange={e => onChange(e)} 
+                                variant="outlined"
+                            />
+                            </div>
+                            <div className="form-group">
+                            <TextField
+                                required
+                                type="password"
+                                id="password"
+                                label="Password"
+                                value={password} 
+                                name="password" 
+                                onChange={e => onChange(e)} 
+                                variant="outlined"
+                            />
+                            </div>
+                            <Button type="submit" variant="contained" color="primary"  value="Login">
+                                Log In
+                            </Button>
+                        </form>
+                        <p className="my-1">
+                            Don't have an account? <Link to="/register" className="themeText">Sign Up</Link>
+                        </p>
+                    </div>
 
+                </div>
             </div>
-        </div>
+        </>
         </Fragment>
 };
 

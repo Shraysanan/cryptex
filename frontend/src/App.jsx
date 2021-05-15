@@ -46,7 +46,6 @@ const App = () => {
           <WatchListContextProvider>
             <BrowserRouter>
               <Nav/>
-              <Header />
               {/* <Alert/> */}
               <Route exact path="/" component={Login} />
               <Route path="/register" component={register} />

@@ -1,3 +1,8 @@
-.PostsList{
-    background: #f7f7f7c4;
+.postsPage{
+    background: #111111de;
+    color: white;
+}
+.title{
+    text-align: center;
+    padding: 1rem;
 }

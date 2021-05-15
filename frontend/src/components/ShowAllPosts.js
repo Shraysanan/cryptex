@@ -21,9 +21,16 @@ const ShowAllPosts = () => {
         allPosts()
     }, [])
     return (
-        <div className="PostsList">
-            <AllPostItem posts={posts}/>
+        <>
+        <div className="postsPage">
+            <div className="title">
+                <h2 >Discussions</h2>
+            </div>
+            <div className="DisPostsList row">
+                <AllPostItem posts={posts}/>
+            </div>
         </div>
+        </>
     )
 }
 
