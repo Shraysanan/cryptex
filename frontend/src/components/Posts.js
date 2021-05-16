@@ -18,6 +18,7 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 import "./Posts.css"
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import { useHistory } from 'react-router';
 
 
 
@@ -53,6 +54,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Posts = ({PostCreated, isAuthenticated}) => {
 
+  const history = useHistory()
+
     const [formData, SetFormData] = useState({
         Heading:'',
         description:''
@@ -65,7 +68,12 @@ const Posts = ({PostCreated, isAuthenticated}) => {
      const onSubmit = async e =>{
         e.preventDefault();
          PostCreated({Heading, description});
+         setTimeout(() => {
+          history.push('/ShowAllPosts');
+         }, 2000);
+        
      }  
+
   const classes = useStyles();
 
   return (

@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import setauthtoken from '../utils/setauthtoken';
 import NewsCatcherItem from './NewsCatcherItem'
+import {Link} from 'react-router-dom'
+import watchlist from './watchlist';
 // var mywatchlistarray=["bitcoin","ethereum","dogecoin"];
 
 
@@ -52,9 +54,6 @@ const options =  {
   }
 };
 if(mywatchlistarray.length){
-
-
-
 axios.request(options).then(function (response) {
     console.log(response.data.articles);
     data = response.data.articles;
@@ -74,14 +73,28 @@ getCurrentUserWatchlist();
 }, [])
 
 
-    return(
-      <div className="newsList row">
-      <div className="col-12">
-        <h2>NEWS UPDATES</h2>
+   
+      { if(mywatchlistarray.length == 0){
+        return  (
+          <div className="newsList row">
+          <div className="col-12">
+            <h2>NEWS UPDATES</h2>
+          </div>
+          <NewsCatcherItem responseData={responseData}/>
       </div>
-      <NewsCatcherItem responseData={responseData}/>
-      </div>
-    )
+        )
+       }else{
+         return(
+           <>
+            <h3>Please make a list first !</h3>
+            <Link to="/watchlist"> Coin List</Link>
+           </>
+         )
+       }
+      }
+      
+     
+    
       
 //           {/* <NewsCatcherItem /> */}
 //          { if(data.length){

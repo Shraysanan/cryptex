@@ -25,7 +25,7 @@ const Login = ({ login, isAuthenticated }) => {
           login(email, password);
         }
     if(localStorage.userid){
-        return <Redirect to='/ShowWatchList'/>
+        return <Redirect to='/CoinSummary'/>
     }
     return <Fragment>
         <>

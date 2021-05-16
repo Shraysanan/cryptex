@@ -7,7 +7,7 @@ import {connect, dispatch, useSelector} from 'react-redux'
 import {getWatchList, putWatchList } from '../actions/watchlist'
 import {GETWATCHLIST, WATHCLISTERROR} from '../actions/Types'
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -22,6 +22,7 @@ const initialState ={
 }
 const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
 
+  const history = useHistory()
   var mywatchlist = new Array();
 
   const [state, setState] = React.useState({
@@ -46,24 +47,16 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
     console.log('updated' + mywatchlist)
   ;
   };
-
-
-
-  // this.selectValue = this.selectValue.bind(this);
-  //  useEffect(() => {
-  //   const res = getWatchList().then(console.log('success'))
-  //   res.then(
-  //     console.log(res)
-  //   )
-  //   console.log(res);
-  //  }, [])
   
     function handleSubmit (e){
       e.preventDefault();
       
       putWatchList(mywatchlist)
+      if(localStorage.userid){
+       history.push('/CoinSummary');
     }
-   
+    }
+    
     return (
         <Fragment>
           <div className="cont">
@@ -93,13 +86,13 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                         onChange={handleChange}
                         name="checkedEtherium"
                         color="primary"
-                        value="etherium"
+                        value="ethereum"
                       />
                     }
                     label={
                       <>
                           <img src="media/eth.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
-                          <h4 className="textp"> Etherium</h4>
+                          <h4 className="textp"> Ethereum</h4>
   
                       </>
                     }
@@ -110,17 +103,135 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                         onChange={handleChange}
                         name="checkedDogeCoin"
                         color="primary"
-                        value="DogeCoin"
+                        value="ripple"
                       />
                     }
                     label={
                       <>
                           <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
-                         <h4 className="textp"> DogeCoin</h4>
+                         <h4 className="textp"> ripple</h4>
   
                       </>
                     }
                   />
+                  <FormControlLabel 
+                    control={
+                      <Checkbox
+                        onChange={handleChange}
+                        name="checkedDogeCoin"
+                        color="primary"
+                        value="tether"
+                      />
+                    }
+                    label={
+                      <>
+                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                         <h4 className="textp"> tether</h4>
+  
+                      </>
+                    }
+                  />
+                  <FormControlLabel 
+                    control={
+                      <Checkbox
+                        onChange={handleChange}
+                        name="checkedDogeCoin"
+                        color="primary"
+                        value="bitcoin-cash"
+                      />
+                    }
+                    label={
+                      <>
+                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                         <h4 className="textp"> bitcoin-cash</h4>
+  
+                      </>
+                    }
+                  />
+                  <FormControlLabel 
+                    control={
+                      <Checkbox
+                        onChange={handleChange}
+                        name="checkedDogeCoin"
+                        color="primary"
+                        value="litecoin"
+                      />
+                    }
+                    label={
+                      <>
+                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                         <h4 className="textp"> litecoin</h4>
+  
+                      </>
+                    }
+                  />
+                  <FormControlLabel 
+                    control={
+                      <Checkbox
+                        onChange={handleChange}
+                        name="checkedDogeCoin"
+                        color="primary"
+                        value="eos"
+                      />
+                    }
+                    label={
+                      <>
+                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                         <h4 className="textp"> eos</h4>
+  
+                      </>
+                    }
+                  />
+                  <FormControlLabel 
+                    control={
+                      <Checkbox
+                        onChange={handleChange}
+                        name="checkedDogeCoin"
+                        color="primary"
+                        value="okb"
+                      />
+                    }
+                    label={
+                      <>
+                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                         <h4 className="textp"> okb</h4>
+  
+                      </>
+                    }
+                  />
+                  <FormControlLabel 
+                    control={
+                      <Checkbox
+                        onChange={handleChange}
+                        name="checkedDogeCoin"
+                        color="primary"
+                        value="tezos"
+                      />
+                    }
+                    label={
+                      <>
+                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                         <h4 className="textp"> tezos</h4>
+  
+                      </>
+                    }
+                  /><FormControlLabel 
+                  control={
+                    <Checkbox
+                      onChange={handleChange}
+                      name="checkedDogeCoin"
+                      color="primary"
+                      value="cardano"
+                    />
+                  }
+                  label={
+                    <>
+                        <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                       <h4 className="textp"> cardano</h4>
+
+                    </>
+                  }
+                />
                   <Button
                     variant="contained"
                     color="primary"

@@ -45,7 +45,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
           {!localStorage.userid && (
             <div>
               {/* <Link to="/ShowWatchList">ShowWatchList</Link> */}
-              <Link to ="/ShowAllPosts" >Discussions</Link>
+              {/* <Link to ="/ShowAllPosts" >Discussions</Link> */}
               <Link to="/register" className={classes.links} >
                 <IconButton
                     aria-label="account of current user"
@@ -74,13 +74,13 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
 
             {localStorage.userid && (
             <div>
-              <Link to="/ShowWatchList">ShowWatchList</Link>
-              <Link to="/newscatcher">newcatcher</Link>
-              <Link to="/watchlist">Edit</Link>
-              <Link to="/createpost" className={classes.links} >create Post</Link>
-              <Link to="/getpost" className={classes.links} >get Post</Link>
-              <Link to="/ShowAllPosts">Discussion</Link>
-
+              {/* <Link to="/ShowWatchList">ShowWatchList</Link> */}
+              <Link to="/newscatcher">newcatcher </Link>
+              <Link to="/watchlist">Edit </Link>
+              <Link to="/createpost" className={classes.links} >create Post </Link>
+              <Link to="/getpost" className={classes.links} >get Post </Link>
+              <Link to="/ShowAllPosts">Discussion </Link>
+              <Link to="/CoinSummary" >Coin Summary </Link>
               
 
                 <a href="/" className={classes.links} >

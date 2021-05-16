@@ -24,13 +24,16 @@ const CreateComment = ({CommentCreated, isAuthenticated}) => {
      const onSubmit = async e =>{
         e.preventDefault();
         CommentCreated({description, id})
+        setTimeout(() => {
+            window.location.reload();
+            
+        },1000);
         // setRedirect(true)
-        // if(redirect){
+        // if(redirect
         //     return <Redirect to={link}/>
         // }
         // <Redirect to={link}/>
         // history.push(link)
-        // window.location.reload();
      }
      return (
          <Fragment>

@@ -49,19 +49,16 @@ const App = () => {
               <Route exact path="/" component={Login} />
               <Route path="/register" component={register} />
               <PrivateRoute path="/ShowAllPosts" component={ShowAllPosts}/>
-              {/* <Route path="/ShowWatchList" component={ShowWatchList} /> */}
               <PrivateRoute exact path="/ShowWatchlist" component={ShowWatchList}/>
               <PrivateRoute exact path="/NewsCatcher" component={NewsCatcher}/>
               <PrivateRoute exact path="/watchlist" component={watchList}/>
               <PrivateRoute exact path="/createPost" component={Posts}/>
               <PrivateRoute exact path = "/getpost" component={CurrentUserPost}/>
               <PrivateRoute exact path = "/readmore/:id" component={Readmore}/>
+              <PrivateRoute path="/CoinSummary" component={CoinSummaryPage} />
 
               
-              {/* <Route path="/NewsCatcher" component={NewsCatcher} /> */}
               <Route path="/login" component={Login} />
-              {/* <Route path="/watchlist" component={watchList}/> */}
-              <Route path="/CoinSummary" component={CoinSummaryPage} />
               <Route path="/coins/:id" component={CoinDetailPage} />
             </BrowserRouter>
           </WatchListContextProvider>

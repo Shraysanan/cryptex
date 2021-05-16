@@ -34,7 +34,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
     }
     //redirect if success
     if(localStorage.userid){
-        return <Redirect to='/watchlist'/>
+        return <Redirect to='/CoinSummary'/>
     }
     return <Fragment>
         <div className="signForm">
