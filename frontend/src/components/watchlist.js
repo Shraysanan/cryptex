@@ -74,7 +74,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="media/btc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                           <h4 className="textp"> BitCoin</h4>
   
                       </>
@@ -108,7 +108,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img src="https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> ripple</h4>
   
                       </>
@@ -125,7 +125,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img src="https://assets.coingecko.com/coins/images/325/large/Tether-logo.png?1598003707" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> tether</h4>
   
                       </>
@@ -142,7 +142,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img src="https://assets.coingecko.com/coins/images/780/large/bitcoin-cash-circle.png?1594689492" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> bitcoin-cash</h4>
   
                       </>
@@ -159,7 +159,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img src="https://assets.coingecko.com/coins/images/2/large/litecoin.png?1547033580" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> litecoin</h4>
   
                       </>
@@ -176,7 +176,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img src="https://assets.coingecko.com/coins/images/738/large/eos-eos-logo.png?1547034481" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> eos</h4>
   
                       </>
@@ -193,7 +193,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img src="https://assets.coingecko.com/coins/images/4463/large/okb_token.png?1548386209" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> okb</h4>
   
                       </>
@@ -210,7 +210,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img src="https://assets.coingecko.com/coins/images/976/large/Tezos-logo.png?1547034862" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> tezos</h4>
   
                       </>
@@ -226,7 +226,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                   }
                   label={
                     <>
-                        <img src="media/dgc.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                        <img src="https://assets.coingecko.com/coins/images/975/large/cardano.png?1547034860" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                        <h4 className="textp"> cardano</h4>
 
                     </>

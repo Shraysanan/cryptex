@@ -1,0 +1,26 @@
+.rmTitle{
+    text-align: center;
+    color: #272727e0;
+    text-transform: capitalize;
+    border-bottom: inset;
+    padding-bottom: 1rem;
+}
+.rmpostItem{
+    margin: 5px;
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.rmabout{
+    height: 1rem;
+    display: block;
+    color: #000000bf;
+}
+
+.rmContent{
+    margin-top: 1rem;
+    color: #212121;
+    margin-bottom: 2rem;
+    font-size: 20px;
+}

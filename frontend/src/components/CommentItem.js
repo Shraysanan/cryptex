@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import "./CommentItem.css"
+
 const CommentItem = (props) => {
     const {id} = props
     const config = {
@@ -17,7 +19,19 @@ const CommentItem = (props) => {
     }, [])
     return (
         comment.map((comm) => {
-            return <li>{comm.text}</li>
+            return (
+                 
+                 
+                 <div className="Comm" key={comm._id}>
+                     <div className="aboutComm">
+                        <span className="nameComm"> {comm.author.username} says ... </span>
+                        <span className="datecomm"> {comm.date.split("T")[0]} </span>
+                     </div>
+                     
+                     {comm.text}</div>
+                 
+                 
+                 )
         })
         
     )

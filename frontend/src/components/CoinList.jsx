@@ -80,6 +80,7 @@ const CoinList = () => {
     return (
       <ul className="coinlist list-group mt-2">
         {coins.map((coin) => {
+          console.log(coin)
           return <Coin key={coin.id} coin={coin} />;
         })}
       </ul>

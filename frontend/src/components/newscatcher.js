@@ -4,6 +4,7 @@ import setauthtoken from '../utils/setauthtoken';
 import NewsCatcherItem from './NewsCatcherItem'
 import {Link} from 'react-router-dom'
 import watchlist from './watchlist';
+import "./newscatcher.css"
 // var mywatchlistarray=["bitcoin","ethereum","dogecoin"];
 
 
@@ -74,11 +75,11 @@ getCurrentUserWatchlist();
 
 
    
-      { if(mywatchlistarray.length == 0){
+      { if(mywatchlistarray.length != 0){
         return  (
           <div className="newsList row">
           <div className="col-12">
-            <h2>NEWS UPDATES</h2>
+            <h1>NEWS UPDATES</h1>
           </div>
           <NewsCatcherItem responseData={responseData}/>
       </div>

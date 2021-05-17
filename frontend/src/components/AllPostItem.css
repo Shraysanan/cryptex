@@ -3,6 +3,7 @@
     margin-bottom: 1rem;
     background: #5654549e;
     border-radius: 10px;
+    color: white;
 }
 
 .descr{
@@ -19,4 +20,8 @@
 .datep{
     font-size: 14px;
     color: #ffffffbf;
+}
+
+.LinkRM{
+    color: #ffffff96;
 }

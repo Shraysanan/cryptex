@@ -3,8 +3,9 @@
     background: #f7f7f7d4;
     padding: 2rem;
     border-radius: 2rem;
-    width: 62%;
+    width: 70%;
     margin: auto;
+    margin-top: 2rem;
 }
 .items{
     display: grid;

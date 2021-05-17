@@ -1,3 +1,10 @@
 .newsList{
-    
+    background: #111111de;
+    padding: 1rem;
+}
+
+.newsList h1{
+    text-align: center;
+    color: #f2f2f2;
+    margin-bottom: 1rem;
 }

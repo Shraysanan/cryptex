@@ -1,0 +1,13 @@
+.aboutComm{
+    font-size: 14px;
+    text-align-last: justify;
+    color: #686868;
+}
+.nameComm{
+    display: inline-block;
+}
+.Comm{
+    margin: 1rem 0;
+    border-bottom: inset;
+    padding: 10px;
+}

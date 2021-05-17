@@ -15,14 +15,16 @@ const AllPostItem = props => {
             return list.description && (
                 <>
                 <div className="col-6">
-                    <div className="posts" key={list._id}>
-                        <p className="pAuthor"> <EmojiObjectsIcon className="ico" /> {list.author.username} </p>
-                        <h3>{list.Heading}</h3>
-                        <p className="datep">Posted on {list.date.split("T")[0]} </p>
-                        <p className="descr">{list.description}</p>
-                        <p> <QuestionAnswerIcon /> {list.comments.length} Comments</p>
-                        <Link to={`/readmore/${list._id}`}>Read More</Link>
-                    </div>
+                    <Link to={`/readmore/${list._id}`}>
+                        <div className="posts" key={list._id}>
+                            <p className="pAuthor"> <EmojiObjectsIcon className="ico" /> {list.author.username} </p>
+                            <h3>{list.Heading}</h3>
+                            <p className="datep">Posted on {list.date.split("T")[0]} </p>
+                            <p className="descr">{list.description}</p>
+                            <p> <QuestionAnswerIcon /> {list.comments.length} Comments</p>
+                            <p className="LinkRM" >Read More...</p>
+                        </div>
+                    </Link>
                 </div>
                 </>
             )

@@ -4,13 +4,18 @@ import {CommentCreated} from '../actions/CommentCreated'
 import CommentItem from './CommentItem'
 import {useParams,useHistory, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
+import CreateIcon from '@material-ui/icons/Create';
+import EventNoteIcon from '@material-ui/icons/EventNote';
+import "./ReadmoreItem.css"
 
 const ReadMoreItem = (props) => {
     // console.log(props.mypost)
     // console.log(props.comments);
     const {mypost} = props;
+    const {author} = props;
     const {comments} = props;
     const {post} = props;
+    const {date} = props;
 //============================================================================================
     const history = useHistory()
     let {id} = useParams()
@@ -39,20 +44,18 @@ const ReadMoreItem = (props) => {
     //     // console.log("comments",mypost.comments)
     //     post();
     // }, [])
+    console.log(author)
+    console.log(date)
+
     return(
         <Fragment>
-            <h1>{mypost.Heading}</h1>
-            <p>{mypost.description}</p>
-            <CreateComment/>
-            <CommentItem id={id}/>
-            {/* <ul>
-                {comments.map((comment) => {
-                    return(
-                        <li>{ comment.text}</li>
-                    )
-                })}
-            </ul>  */}
-            {/* <small>{mypost.data}</small> */}
+            <div className="rmpostItem">
+                <h1 className="rmTitle">{mypost.Heading}</h1>
+                <p className="rmabout"><span className="float-left"> <CreateIcon/> Dicussion intiated by {author.username}</span> <span className="float-right"> <EventNoteIcon/> {date.split("T")[0]}  </span></p>
+                <p className="rmContent">{mypost.description}</p>
+                <CreateComment/>
+                <CommentItem id={id}/>
+            </div>
             
         </Fragment>
     )

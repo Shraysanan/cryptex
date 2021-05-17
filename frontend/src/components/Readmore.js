@@ -4,6 +4,7 @@ import ReadMoreItem from'./ReadMoreItem'
 import axios from 'axios'
 import {useParams,useHistory, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
+import "./Readmore.css"
 
 
 const Readmore = () => {
@@ -11,7 +12,9 @@ const Readmore = () => {
     let {id} = useParams()
 
     const [mypost, setmypost] = useState({})
+    const [author, setAuthor] = useState({})
     const [comments, setComment] = useState([])
+    const [date, setDate] = useState('')
 
     const Post = () => {
         console.log('before axios')
@@ -19,6 +22,8 @@ const Readmore = () => {
         const res = response.data;
         const comments = response.data.comments;
         setComment(comments)
+        setAuthor(res.author)
+        setDate(res.date)
         console.log(res)
         setmypost(res)
     });
@@ -28,9 +33,9 @@ const Readmore = () => {
     },[])
     
     return (
-        <div>
-            <ReadMoreItem mypost={mypost} comments={comments} post={Post}/>
-           
+        <div className="rmpost">
+            <ReadMoreItem mypost={mypost} comments={comments} post={Post}  author={author} date={date} />
+            
         </div>
     )
 
