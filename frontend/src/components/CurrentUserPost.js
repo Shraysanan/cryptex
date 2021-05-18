@@ -6,6 +6,7 @@ import PostItem from './PostItem'
 import axios from 'axios'
 import setauthtoken from '../utils/setauthtoken';
 import "./CurrentUserPost.css"
+import RateReviewIcon from '@material-ui/icons/RateReview';
 
 
 const CurrentUserPost = () => {
@@ -43,8 +44,14 @@ const CurrentUserPost = () => {
     }, [])
     
     return (
-        <div className="PostsList">
-            <PostItem mypost={mypost}/>
+
+        <div className="postsPagecu">
+            <div className="titlecu">
+                <h1 > <RateReviewIcon className="forumI vm"/> My Threads</h1>
+            </div>
+            <div className="DisPostsList row">
+                <PostItem mypost={mypost}/>
+            </div>
         </div>
     )
 

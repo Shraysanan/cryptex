@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import AllPostItem from './AllPostItem'
+import ForumIcon from '@material-ui/icons/Forum';
 import "./ShowAllPosts.css"
 
 
@@ -24,7 +25,7 @@ const ShowAllPosts = () => {
         <>
         <div className="postsPage">
             <div className="title">
-                <h2 >Discussions</h2>
+                <h1 > <ForumIcon className="forumI"/> Discussion Forum</h1>
             </div>
             <div className="DisPostsList row">
                 <AllPostItem posts={posts}/>

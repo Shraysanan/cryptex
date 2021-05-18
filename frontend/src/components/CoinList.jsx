@@ -4,6 +4,7 @@ import { WatchListContext } from "../context/watchListContext";
 import {Link} from 'react-router-dom'
 import Coin from "./Coin";
 import axios from 'axios'
+import "./CoinList.css"
 
 const CoinList = () => {
   const [coins, setCoins] = useState([]);
@@ -78,7 +79,7 @@ const CoinList = () => {
    
 
     return (
-      <ul className="coinlist list-group mt-2">
+      <ul className="coinlist list-group">
         {coins.map((coin) => {
           console.log(coin)
           return <Coin key={coin.id} coin={coin} />;

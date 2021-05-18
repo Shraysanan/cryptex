@@ -1,3 +1,16 @@
-.PostsList{
+
+.postsPagecu{
     background: #f7f7f7c4;
+    color: #212121;
+    padding: 2rem;
+}
+.titlecu{
+    text-align: center;
+    padding: 1rem;
+    border-bottom: inset;
+    margin-bottom: 2rem;
+}
+
+.vm{
+    vertical-align: middle;
 }

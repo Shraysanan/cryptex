@@ -1,9 +1,16 @@
 .postsPage{
-    background: #111111de;
-    color: white;
+    background: #f7f7f7c4;
+    color: #212121;
     padding: 2rem;
 }
 .title{
     text-align: center;
     padding: 1rem;
+    color: #2d2d2d;
+    margin-bottom: 1rem;
+    border-bottom: inset;
+}
+
+.forumI{
+    font-size: 50px !important;
 }

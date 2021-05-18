@@ -6,6 +6,7 @@ import {Link, Redirect} from 'react-router-dom';
 import {setAlert} from '../actions/alert';
 import {register} from '../actions/auth';
 import PropTypes from 'prop-types';
+import Header from "./Header";
 import "./register.css";
 
 
@@ -37,6 +38,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
         return <Redirect to='/CoinSummary'/>
     }
     return <Fragment>
+        <Header/>
         <div className="signForm">
             <div className="container container1 bx">
                 <div className="col-6 col-sm-7 col-md-6">
@@ -52,6 +54,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
                             id="name"
                             label="Name"
                             value={name} 
+                            className="inpb"
                             name="name" 
                             onChange={e => onChange(e)} 
                             variant="outlined"
@@ -64,6 +67,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
                             id="email"
                             type="email"
                             label="Email Id"
+                            className="inpb"
                             value={email} 
                             name="email" 
                             onChange={e => onChange(e)} 
@@ -77,6 +81,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
                             id="password"
                             type="password"
                             label="Password"
+                            className="inpb"
                             value={password} 
                             name="password" 
                             onChange={e => onChange(e)} 
@@ -90,6 +95,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
                             type="password"
                             label="Confirm Password"
                             value={password2} 
+                            className="inpb"
                             name="password2" 
                             onChange={e => onChange(e)} 
                             variant="outlined"

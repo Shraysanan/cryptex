@@ -2,3 +2,43 @@
     color: #fff;
     background-color: #3f51b58f !important;
 }
+
+.titm{
+    color: white;
+    font-weight: 600;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.Navbutton {
+    color: #fff !important;
+    background-color: #3f51b578 !important;
+    margin-right: 1rem !important;
+}
+
+.Navbuttondrop {
+    color: #272d4a !important;
+    font-variant-caps: petite-caps;
+}
+
+
+
+@media (max-width: 1060px){
+
+    .lgscr{
+        display: none;
+    }
+    .smalscr{
+        display: inline-flex;
+        float: right;
+    }
+}
+
+@media (min-width: 1061px){
+
+    .smalscr{
+        display: none;
+    }
+}

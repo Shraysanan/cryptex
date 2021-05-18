@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import HistoryChart from "../components/HistoryChart";
 import CoinData from "../components/CoinData";
 import coinGecko from "../apis/coinGecko";
+import "./CoinDetailPage.css";
 
 const CoinDetailPage = () => {
   const { id } = useParams();

@@ -45,6 +45,7 @@ const Login = ({ login, isAuthenticated }) => {
                                 type="email"
                                 id="email"
                                 label="E Mail"
+                                className="inpb"
                                 value={email} 
                                 name="email" 
                                 onChange={e => onChange(e)} 
@@ -57,6 +58,7 @@ const Login = ({ login, isAuthenticated }) => {
                                 type="password"
                                 id="password"
                                 label="Password"
+                                className="inpb"
                                 value={password} 
                                 name="password" 
                                 onChange={e => onChange(e)} 
