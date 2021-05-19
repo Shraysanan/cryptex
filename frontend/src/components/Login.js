@@ -33,7 +33,7 @@ const Login = ({ login, isAuthenticated }) => {
             <div className="signForm">
                 <div className="container bx">
                     <div className="col-6">
-                        <img className="loginImg" src="media/cryto.jpg" alt="alt image" />
+                        <img className="loginImg" src="media/cryto.jpg" alt="data not loaded" />
                     </div>
                     <div className="col-6">
                         <h1 className="large text-primary">Sign In</h1>

@@ -3,7 +3,6 @@ const auth = require('../middleware/auth');
 var router = express.Router();
 const user = require('../models/user');
 
-//updating watch list
 router.put("/", auth, async (req,res)=>{
     
     console.log("user is is "+req.header('userid'))
@@ -14,8 +13,7 @@ router.put("/", auth, async (req,res)=>{
             console.log(err);
             res.status(500).send(err);
         } else {
-            res.send(updateduser);
-            // res.json(updateduser);
+            res.status(200).send(updateduser);
         }
     })
 });
@@ -31,7 +29,6 @@ router.get("/",auth, async (req,res)=>{
             res.status(500).send(err);
         } else {
              res.send(user.mywatchlist);
-            // res.json(user.mywatchlist);
         }
     })
 });

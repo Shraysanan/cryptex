@@ -1,4 +1,3 @@
-//get and update watchlist
 
 import { GETWATCHLIST, WATHCLISTERROR } from "../actions/Types"
 

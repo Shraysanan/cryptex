@@ -7,7 +7,6 @@ const initialState = {};
 
 const middlware = [thunk];
 
-//create store to store the state of the application
 const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middlware)));
 
 export default store;

@@ -11,6 +11,12 @@ export default function( state , action ) {
                ...payload
 
             }
+    default :
+        return state
+
     }
+
+
+    
 
 }

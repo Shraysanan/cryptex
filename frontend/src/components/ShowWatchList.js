@@ -2,10 +2,8 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types';
-// import {getWatchList, putWatchList } from '../actions/watchlist'
 import WatchlistItem from './WatchlistItem'
 import { Fragment } from 'react';
-// import watchlist from './watchlist'
 import setauthtoken from '../utils/setauthtoken';
 
 
@@ -28,11 +26,9 @@ const ShowWatchList = () => {
         delete axios.defaults.headers.common['x-auth-token'];
     }
     console.log('inside action',localStorage.userid,localStorage.token);
-//get data from api
 const url = 'http://localhost:5000/watchlist';
 const getCurrentUserWatchlist = () => {
     axios.get(url, config).then((response) => {
-        // console.log(response.data);
         const userwatchlist = response.data
         console.log(userwatchlist)
         getWatchList(userwatchlist);

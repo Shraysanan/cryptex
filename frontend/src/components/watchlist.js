@@ -1,7 +1,6 @@
-import React,  {useState, Fragment} from 'react'
-import {history } from 'react-router-dom'
+import React,  {Fragment} from 'react'
 import {connect} from 'react-redux'
-import {getWatchList, putWatchList } from '../actions/watchlist'
+import {putWatchList } from '../actions/watchlist'
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -10,13 +9,12 @@ import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import "./watchlist.css";
 
-const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
+const Watchlist = ({isAuthenticated,watchlist, putWatchList}) => {
 
   const history = useHistory()
   var mywatchlist = new Array();
   
   const handleChange = (event) => {
-    // console.log(mywatchlist)
     const checked = event.target.checked
     if(checked){
       const val = event.target.value
@@ -224,27 +222,11 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     Save
                   </Button>                  
                 </form>
-
-
-              {/* <form >
-                  <select value={mywatchlist} onChange={handleChange} multiple={true}>
-                    <option value="bitcoin">bitcoin</option>
-                    <option value="etherium">etherium</option>
-                    <option value="DogeCoin">DogeCoin</option>
-                  </select>
-                    <ul>
-                    { 
-                    }
-                  </ul>  
-                  <input type="submit" className="btn btn-primary" value="Submit"/>
-              </form> */}
           </div>
         </Fragment>
     )
     }
 Watchlist.propTypes = {
-    getWatchList: PropTypes.func.isRequired,
-    // auth: PropTypes.object.isRequired,
     watchlist: PropTypes.array.isRequired,
     isAuthenticated: PropTypes.bool,
 
@@ -257,4 +239,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps, {getWatchList,putWatchList})(Watchlist)
+export default connect(mapStateToProps, {putWatchList})(Watchlist)

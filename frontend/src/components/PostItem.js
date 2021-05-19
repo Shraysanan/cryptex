@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import PropTypes from 'prop-types'
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
 
@@ -35,11 +34,6 @@ const PostItem = props => {
     }else{
         return <h3>no list</h3>
     }
-    // return (
-    //     <div>
-    //         {WatchlistItem(props)}
-    //     </div>
-    // )
 }
 
 

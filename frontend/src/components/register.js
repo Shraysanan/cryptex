@@ -21,19 +21,18 @@ const Register = ({setAlert, register, isAuthenticated}) => {
 
     const {name, email, password, password2} = formData;
 
-    //use name parameter of every input field and set its state to the current state of the field
     const onChange = e => SetFormData({...formData, [e.target.name]:e.target.value});
 
     const onSubmit = async e =>{
-        e.preventDefault(); //since its a submit
+        e.preventDefault(); 
         if(password !== password2) {
-            setAlert('Passwords do not match', 'danger');//pass the string in the actions/alerts
+            setAlert('Passwords do not match', 'danger');
         }else {
-        //    console.log('Success');
+        
            register({name, email, password});
         }
     }
-    //redirect if success
+
     if(localStorage.userid){
         return <Redirect to='/CoinSummary'/>
     }
@@ -42,7 +41,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
         <div className="signForm">
             <div className="container container1 bx">
                 <div className="col-6 col-sm-7 col-md-6">
-                    <img className="loginImg" src="media/exchange.jpg" alt="alt image" />
+                    <img className="loginImg" src="media/exchange.jpg" alt="Registration page" />
                 </div>
                 <div className="col-6 col-sm-5 col-md-6">
                     <h1 className="large themeText" >Sign Up</h1>
@@ -125,6 +124,6 @@ const mapstatetoprop = state => ({
     isAuthenticated: state.auth.isAuthenticated
 });
 
-//state is null, action 'setAlert' allows us to use props.setAlert
+
 export default connect(mapstatetoprop, {setAlert, register} )(Register);
 

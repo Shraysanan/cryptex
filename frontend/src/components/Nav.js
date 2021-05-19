@@ -74,7 +74,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-start',
   },
@@ -194,7 +193,6 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
 
             {localStorage.userid && (
             <div>
-              {/* <Link to="/ShowWatchList">ShowWatchList</Link> */}
               <span className="lgscr">
                 <Link to="/CoinSummary">
                   <Button

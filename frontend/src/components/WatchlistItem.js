@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import watchlist from './watchlist'
+
 
 const WatchlistItem = props => {
     console.log(props.watchlist)
@@ -22,15 +21,7 @@ const WatchlistItem = props => {
     }else{
         return <h3>no list</h3>
     }
-    // return (
-    //     <div>
-    //         {WatchlistItem(props)}
-    //     </div>
-    // )
 }
 
-WatchlistItem.propTypes = {
-
-}
 
 export default WatchlistItem

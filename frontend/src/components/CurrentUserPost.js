@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import {MyPost} from '../actions/Posts'
 import PostItem from './PostItem'
 import axios from 'axios'
 import setauthtoken from '../utils/setauthtoken';
@@ -35,7 +33,6 @@ const CurrentUserPost = () => {
                 console.log(currentPost)
                 setmypost(currentPost)
             });
-            // console.log('res' ,res);
 
             } 
 

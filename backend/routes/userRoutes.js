@@ -9,16 +9,15 @@ const user = require('../models/user.js');
 //Test route
 //public
 router.post('/',[ 
-    // check('name', 'Name is required').not().isEmpty(),
-    // check('email', 'Please include a proper email').isEmail(), //email format
-    // check('password', 'Please enter a password with 5 or more charectors').isLength({min: 5})
+    check('name', 'Name is required').not().isEmpty(),
+    check('email', 'Please include a proper email').isEmail(), //email format
+    check('password', 'Please enter a password with 5 or more charectors').isLength({min: 5})
 ], async (req, res) =>{
     console.log(req);
     const errors = validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array() });
     }
-
 
     const {name, email, password} = req.body;
 
@@ -64,15 +63,8 @@ router.post('/',[
             throw err;
         }else{
             res.send({"token":token,"userid":payload.User.id});
-
-            console.log("token"+token);
-            res.send({token});
-
-            // console.log(token);
         }
     });
-    // console.log(jwtSecret);
-    res.send('user registered')
 
     }catch(err){
         console.error(err.message);

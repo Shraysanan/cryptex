@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {GETWATCHLIST, WATHCLISTERROR} from './Types';
-// import setauthtoken from '../utils/setauthtoken';
 
 import setauthtoken from '../utils/setauthtoken';
 
@@ -23,7 +22,6 @@ export const getWatchList = (userid) => async (dispatch) => {
     console.log('inside action',localStorage.userid,localStorage.token);
 
     try {
-        // console.log('inside action')
         const res = await axios.get('http://localhost:5000/watchlist');
         console.log('res'+ res);
         dispatch({

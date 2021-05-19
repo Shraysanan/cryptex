@@ -1,8 +1,5 @@
 import React, { Fragment, useState } from 'react';
-// import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-// import {setAlert} from '../actions/alert';
-// import {register} from '../actions/auth';
 import PropTypes from 'prop-types'
 
 
@@ -17,19 +14,16 @@ const Register = ({setAlert, register, isAuthenticated}) => {
 
     const {name, email, password, password2} = formData;
 
-    //use name parameter of every input field and set its state to the current state of the field
     const onChange = e => SetFormData({...formData, [e.target.name]:e.target.value});
 
     const onSubmit = async e =>{
-        e.preventDefault(); //since its a submit
+        e.preventDefault(); 
         if(password !== password2) {
-            setAlert('Passwords do not match', 'danger');//pass the string in the actions/alerts
+            setAlert('Passwords do not match', 'danger');
         }else {
-        //    console.log('Success');
            register({name, email, password});
         }
     }
-    //redirect if success
     if(isAuthenticated){
         return <Redirect to='/dashboard'/>
     }
@@ -76,7 +70,6 @@ const Register = ({setAlert, register, isAuthenticated}) => {
         </Fragment>
 
 }
-{/* state is null, action 'setAlert' allows us to use props.setAlert */}
 Register.propTypes = {
     setAlert: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,

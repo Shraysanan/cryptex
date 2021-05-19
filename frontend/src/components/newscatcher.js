@@ -3,7 +3,6 @@ import axios from "axios";
 import setauthtoken from '../utils/setauthtoken';
 import NewsCatcherItem from './NewsCatcherItem'
 import {Link} from 'react-router-dom'
-import watchlist from './watchlist';
 import "./newscatcher.css"
 // var mywatchlistarray=["bitcoin","ethereum","dogecoin"];
 
@@ -75,8 +74,8 @@ getCurrentUserWatchlist();
 
 
    
-      { if(mywatchlistarray.length != 0){
-        return  (
+      { if(mywatchlistarray.length !== 0){
+        return(
           <div className="newsList row">
           <div className="col-12">
             <h1>NEWS UPDATES</h1>
@@ -93,23 +92,6 @@ getCurrentUserWatchlist();
          )
        }
       }
-      
-     
-    
-      
-//           {/* <NewsCatcherItem /> */}
-//          { if(data.length){
-//             return(
-//               <h1>{data[0].summary}</h1>
-
-          
-//           )}else{
-//               return (
-//                 <h1>error</h1>
-//               )
-//             }
-            
-//         }
        
     
 }

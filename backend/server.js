@@ -26,9 +26,6 @@ app.get("/",function(req,res){
     res.send("landing")
   });
 
-//=====================================================================
-//REGISTER API
-//add email after frontend is made
 app.use("/register",require('./routes/userRoutes'));
 app.use("/login", require("./routes/LoginRoute"));
 app.use("/watchlist",require("./routes/watchlistroutes"));

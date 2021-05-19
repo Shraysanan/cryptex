@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import coinGecko from "../apis/coinGecko";
-// import { WatchListContext } from "../context/watchListContext";
 import {Link} from 'react-router-dom'
 import Coin from "./Coin";
 import axios from 'axios'
@@ -8,10 +7,8 @@ import "./CoinList.css"
 
 const CoinList = () => {
   const [coins, setCoins] = useState([]);
-  // const { watchList, deleteCoin } = useContext(WatchListContext);
   const [watchList, setWatchList] = useState([])
   const [isLoading, setIsLoading] = useState(false);
-  // console.log(watchList);
   const config = {
     headers:{
         'Content-Type': 'application/json',
@@ -22,7 +19,6 @@ const CoinList = () => {
   const url = 'http://localhost:5000/watchlist';
   const getCurrentUserWatchlist = () => {
     axios.get(url, config).then((response) => {
-        // console.log(response.data);
         const userwatchlist = response.data
         console.log(userwatchlist)
         setWatchList(userwatchlist);
@@ -34,14 +30,10 @@ const CoinList = () => {
     
   },[])
 
-  // var encodedURL = "http://example.com/foo.php?var=" + encodeURIComponent(param);
-
-  ///////
   useEffect(() => {
     console.log("this is watchlist",watchList);
     watchList.join(",");
     
-    // const id = watchList.split(',')
     const fetchData = async () => {
       setIsLoading(true);
       const response = await coinGecko.get("/coins/markets/", {

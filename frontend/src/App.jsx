@@ -3,19 +3,14 @@ import { BrowserRouter, Route } from "react-router-dom";
 import CoinDetailPage from "./pages/CoinDetailPage";
 import CoinSummaryPage from "./pages/CoinSummaryPage";
 
-// import Home from "./pages/Home"
 import "./App.css";
 import { WatchListContextProvider } from "./context/watchListContext";
-// import Landing from "./pages/Landing";
 import Login from './components/Login'
-// import Alert from './alerts/alert'
 import setauthtoken from './utils/setauthtoken'
-// import {loaduser} from './actions/auth'
 import Nav from './components/Nav';
 import watchList from './components/watchlist'
 import NewsCatcher from './components/newscatcher'
 import PrivateRoute from './components/routing/PrivateRoute'
-//Redux
 import {Provider} from 'react-redux';
 import store from './store';
 import register from "./components/register";
@@ -42,7 +37,6 @@ const App = () => {
           <WatchListContextProvider>
             <BrowserRouter>
               <Nav/>
-              {/* <Alert/> */}
               <Route exact path="/" component={Login} />
               <Route path="/register" component={register} />
               <PrivateRoute path="/ShowAllPosts" component={ShowAllPosts}/>

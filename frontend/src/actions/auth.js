@@ -3,42 +3,18 @@ import { setAlert } from "./alert.js";
 import {
     REGISTER_FAILURE,
     REGISTER_SUCCESS,
-    USER_LOADED,
-    AUTH_ERROR,
     LOGIN_FAILURE,
     LOGIN_SUCCESS,
     GETWATCHLIST,
     WATHCLISTERROR,
     LOGOUT
 } from './Types'
-import setauthtoken from '../utils/setauthtoken';
 
-//load user
 
-// export const loaduser = () => async dispatch =>{
-//     if(localStorage.token){
-//         setauthtoken(localStorage.token)
-//     }
-//     try {
-//         const res = await axios.get('http://localhost:5000/login');
-//         dispatch({
-//             type: USER_LOADED,
-//             payload: res.data
-//         });
-//     } catch (err) {
-//         console.log(err)
-//         dispatch({
-//             type: AUTH_ERROR
-//         })        
-//     }
-// }
-
-// Register user
 
 export const register = ({name, email, password}) => async dispatch => {
     const config = {
         headers: {
-            // 'Content-Type': 'application/x-www-form-urlencoded'
             'Content-Type':'application/json'
         }
     }
@@ -54,7 +30,6 @@ export const register = ({name, email, password}) => async dispatch => {
             type: REGISTER_SUCCESS,
             payload: res.data
         });
-        // dispatch(loaduser());
     } catch (err) {
         if(err){
             console.log(err);
@@ -90,13 +65,8 @@ export const login = (email, password) => async dispatch => {
             type: LOGIN_SUCCESS,
             payload: res.data
         });
-        //  dispatch(loaduser());
     } catch (err) {
 
-        // const errors = err.response.data.errors;
-        // if(errors){
-        //     errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-        // }
         dispatch({
             type: LOGIN_FAILURE
         });

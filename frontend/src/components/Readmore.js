@@ -2,8 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import ReadMoreItem from'./ReadMoreItem'
 import axios from 'axios'
-import {useParams,useHistory, Redirect} from 'react-router-dom'
-import {connect} from 'react-redux'
+import {useParams} from 'react-router-dom'
 import "./Readmore.css"
 
 

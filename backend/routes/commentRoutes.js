@@ -20,7 +20,6 @@ router.post('/create',async(req,res)=>{
                 }
                 else{
                     Comment.create(req.body,function(err,comment){
-                        //pass post object with params from react
                       if(err){
                         console.log(err);
                         res.status(500).send(err);
@@ -34,7 +33,6 @@ router.post('/create',async(req,res)=>{
                         post.save();
                         res.status(200).send("comment created and linked to user and post");
 
-                        //check if user needs to be altered and saved as well
                       }
                     });
                 }
@@ -62,7 +60,6 @@ router.put('/editcomment',async(req,res)=>{
   const userId = req.header('userid');
   const commentId = req.header('commentid');
   const commentauthorid = req.header('commentauthorid');
-  //replace above headers with req.body logic later
   console.log("ready to update");
   if(userId==commentauthorid){
     Comment.findByIdAndUpdate(commentId,{ text: req.body.text },(err,foundcomment)=>{
@@ -81,7 +78,6 @@ router.delete("/deletecomment", async (req, res)=>{
   const userId = req.header('userid');
   const commentId = req.header('commentid');
   const commentauthorid = req.header('commentauthorid');
-  //replace above headers with req.body logic later
   console.log("ready to delete");
   if(userId==commentauthorid){
     Comment.findByIdAndDelete(commentId,(err,foundcomment)=>{

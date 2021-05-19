@@ -2,10 +2,7 @@ import React, {useState, Fragment} from 'react'
 import {connect} from 'react-redux'
 import {CommentCreated} from '../actions/CommentCreated'
 import PropTypes from 'prop-types'
-import {useParams, useHistory, Redirect} from 'react-router-dom'
-import TextField from '@material-ui/core/TextField';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import {useParams} from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton';
 import SendIcon from '@material-ui/icons/Send';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,21 +10,16 @@ import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import AddCommentIcon from '@material-ui/icons/AddComment';
-import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
 import "./CreateComment.css"
 
 const CreateComment = ({CommentCreated, isAuthenticated}) => {
-    const history = useHistory()
+
     let {id} = useParams()
-    let link = `/readmore/${id}`
     const [formData, SetFormData] = useState({
         
         description:''
      });
-     const [redirect, setRedirect] = useState({
-         redirect:false
-     })
+ 
  
      const {description} = formData;
      
@@ -35,7 +27,7 @@ const CreateComment = ({CommentCreated, isAuthenticated}) => {
      const onChange = e => SetFormData({...formData, [e.target.name]:e.target.value});
 
      const keyPress = e => {
-        if(e.keyCode == 13){
+        if(e.keyCode === 13){
             onSubmit(e);
             // put the login here
          }
@@ -70,12 +62,7 @@ const CreateComment = ({CommentCreated, isAuthenticated}) => {
             window.location.reload();
             
         },1000);
-        // setRedirect(true)
-        // if(redirect
-        //     return <Redirect to={link}/>
-        // }
-        // <Redirect to={link}/>
-        // history.push(link)
+
      }
      return (
          <Fragment>
