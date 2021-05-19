@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {COMMENTCREATED, GETMYCOMMENT, GETMYPOST} from './Types'
+import {COMMENTCREATED, GETMYPOST} from './Types'
 import setauthtoken from '../utils/setauthtoken'
 
 export const CommentCreated = ({ description,  id}) => async dispatch => {

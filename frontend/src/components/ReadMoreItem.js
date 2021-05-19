@@ -1,8 +1,8 @@
-import React, {Fragment,useEffect, useState} from 'react'
+import React, {Fragment,useState} from 'react'
 import CreateComment from './CreateComment';
 import {CommentCreated} from '../actions/CommentCreated'
 import CommentItem from './CommentItem'
-import {useParams,useHistory, Redirect} from 'react-router-dom'
+import {useParams,useHistory} from 'react-router-dom'
 import {connect} from 'react-redux'
 import CreateIcon from '@material-ui/icons/Create';
 import EventNoteIcon from '@material-ui/icons/EventNote';
@@ -13,13 +13,10 @@ const ReadMoreItem = (props) => {
     // console.log(props.comments);
     const {mypost} = props;
     const {author} = props;
-    const {comments} = props;
-    const {post} = props;
     const {date} = props;
 //============================================================================================
-    const history = useHistory()
     let {id} = useParams()
-    let link = `/readmore/${id}`
+    // let link = `/readmore/${id}`
     // const [formData, SetFormData] = useState({
         
     //     description:''
@@ -68,7 +65,7 @@ const maptstatetoprops = state => ({
 })
 export default connect(maptstatetoprops, {CommentCreated})(ReadMoreItem)
 
-{/* <div>
+/* <div>
                 <form className="form" onSubmit= {e => onSubmit(e)}>
                          <div className="form-group">
                              <label>Comment</label>
@@ -79,4 +76,4 @@ export default connect(maptstatetoprops, {CommentCreated})(ReadMoreItem)
                              </button>
                          </div>
                      </form>  
-            </div> */}
+            </div> */

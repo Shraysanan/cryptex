@@ -6,6 +6,8 @@ frontend:-
 5) discussion page.
 6) option to download chart
 7)creation of watchlist page for user to select coins
+//////////
+8) remove delete item icon in coin summary
 
 backend:-
 1)user authentication(name,email,pass)

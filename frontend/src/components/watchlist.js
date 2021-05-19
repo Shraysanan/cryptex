@@ -1,39 +1,20 @@
-import React,  {useEffect, useState, Fragment} from 'react'
+import React,  {useState, Fragment} from 'react'
 import {history } from 'react-router-dom'
-// import React, { useState, useContext } from "react";
-import { WatchListContext } from "../context/watchListContext";
-import axios from 'axios'
-import {connect, dispatch, useSelector} from 'react-redux'
+import {connect} from 'react-redux'
 import {getWatchList, putWatchList } from '../actions/watchlist'
-import {GETWATCHLIST, WATHCLISTERROR} from '../actions/Types'
 import PropTypes from 'prop-types';
-import { Redirect, useHistory } from 'react-router';
-import FormGroup from '@material-ui/core/FormGroup';
+import { useHistory } from 'react-router';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import "./watchlist.css";
 
-const initialState ={
-  mywatchlist: [],
-  loading: true,
-  error:{}
-}
 const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
 
   const history = useHistory()
   var mywatchlist = new Array();
-
-  const [state, setState] = React.useState({
-    checkedBitcoin: false,
-    checkedEtherium: false,
-    checkedDogeCoin: false,
-    mywatchlist:[]
-  });
-  const {selectValue, setselectValue} = useState({
-    mywatchlist:[]
-  });
+  
   const handleChange = (event) => {
     // console.log(mywatchlist)
     const checked = event.target.checked
@@ -42,7 +23,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
       mywatchlist.push(val)
     }else{
       var remove_element=mywatchlist.indexOf(event.target.value);
-      let removed = mywatchlist.splice(remove_element,1)
+      mywatchlist.splice(remove_element,1)
     }
     console.log('updated' + mywatchlist)
   ;
@@ -74,7 +55,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img alt="not available" src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                           <h4 className="textp"> BitCoin</h4>
   
                       </>
@@ -91,7 +72,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="media/eth.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img alt="not available" src="media/eth.png" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                           <h4 className="textp"> Ethereum</h4>
   
                       </>
@@ -108,7 +89,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img alt="not available" src="https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> ripple</h4>
   
                       </>
@@ -125,7 +106,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="https://assets.coingecko.com/coins/images/325/large/Tether-logo.png?1598003707" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img alt="not available" src="https://assets.coingecko.com/coins/images/325/large/Tether-logo.png?1598003707" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> tether</h4>
   
                       </>
@@ -142,7 +123,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="https://assets.coingecko.com/coins/images/780/large/bitcoin-cash-circle.png?1594689492" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img alt="not available" src="https://assets.coingecko.com/coins/images/780/large/bitcoin-cash-circle.png?1594689492" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> bitcoin-cash</h4>
   
                       </>
@@ -159,7 +140,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="https://assets.coingecko.com/coins/images/2/large/litecoin.png?1547033580" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img alt="not available" src="https://assets.coingecko.com/coins/images/2/large/litecoin.png?1547033580" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> litecoin</h4>
   
                       </>
@@ -176,7 +157,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="https://assets.coingecko.com/coins/images/738/large/eos-eos-logo.png?1547034481" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img alt="not available" src="https://assets.coingecko.com/coins/images/738/large/eos-eos-logo.png?1547034481" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> eos</h4>
   
                       </>
@@ -193,7 +174,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="https://assets.coingecko.com/coins/images/4463/large/okb_token.png?1548386209" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img alt="not available" src="https://assets.coingecko.com/coins/images/4463/large/okb_token.png?1548386209" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> okb</h4>
   
                       </>
@@ -210,7 +191,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                     }
                     label={
                       <>
-                          <img src="https://assets.coingecko.com/coins/images/976/large/Tezos-logo.png?1547034862" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                          <img alt="not available" src="https://assets.coingecko.com/coins/images/976/large/Tezos-logo.png?1547034862" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                          <h4 className="textp"> tezos</h4>
   
                       </>
@@ -226,7 +207,7 @@ const Watchlist = ({isAuthenticated,getWatchList,watchlist, putWatchList}) => {
                   }
                   label={
                     <>
-                        <img src="https://assets.coingecko.com/coins/images/975/large/cardano.png?1547034860" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
+                        <img alt="not available" src="https://assets.coingecko.com/coins/images/975/large/cardano.png?1547034860" className="profile-img" width="40px" height="auto" style={{ marginRight: "5px" }} />
                        <h4 className="textp"> cardano</h4>
 
                     </>

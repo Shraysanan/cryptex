@@ -11,8 +11,8 @@ const CommentItem = (props) => {
 }
     const [comment, setComment] = useState([])
     useEffect(() => {
-        console.log('conifg',config)
-        const res = axios.get('http://localhost:5000/comment/getcomments', config).then((response) => {
+        
+        axios.get('http://localhost:5000/comment/getcomments', config).then((response) => {
             console.log(response.data)
             setComment(response.data)
         })

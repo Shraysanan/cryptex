@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import coinGecko from "../apis/coinGecko";
-import { WatchListContext } from "../context/watchListContext";
+// import { WatchListContext } from "../context/watchListContext";
 import {Link} from 'react-router-dom'
 import Coin from "./Coin";
 import axios from 'axios'
@@ -68,7 +68,7 @@ const CoinList = () => {
     if (isLoading) {
       return <div>Loading...</div>;
     }
-    else if(watchList.length == 0){
+    else if(watchList.length === 0){
       return (
         <>
           <h3>Please make a list</h3>

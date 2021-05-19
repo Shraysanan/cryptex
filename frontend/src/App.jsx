@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import CoinDetailPage from "./pages/CoinDetailPage";
 import CoinSummaryPage from "./pages/CoinSummaryPage";
@@ -33,10 +33,7 @@ if (localStorage.token) {
 }
 
 const App = () => {
-  // useEffect( ()=>{
-  //   store.dispatch(loaduser())
-  //   // console.log('hello from dispatch')
-  // }, []);
+  
   return (
     <div className="container container0">
       <video src="media/Plexus.mp4" autoPlay muted loop ></video>

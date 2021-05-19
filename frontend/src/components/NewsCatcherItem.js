@@ -15,10 +15,10 @@ const NewsCatcherItem = props => {
                         <a href={list.link} target="_blank" rel="noopener noreferrer">
                             <div className="items">
                                 
-                                {list.media_content !=  null ? <img src={list.media_content} alt="No Image available" className="newsImg" /> : <img src="media/altImg.jpg" alt="No Image available" className="newsImg" />}
+                                {list.media_content !=  null ? <img src={list.media_content} alt="Not available" className="newsImg" /> : <img src="media/altImg.jpg" alt="Not available" className="newsImg" />}
                                 <h4>{list.title}</h4>
                                 <h5 className="author"> {list.author != null ?<span><PlayArrowIcon/>  {list.author}</span>  :  <span>   <PlayArrowIcon/>  {list.clean_url}</span>  } 
-                                <span className="topic"> {list.topic != "NA" ? <span>#{list.topic} </span> : null }  </span>
+                                <span className="topic"> {list.topic == "NA" ? null :<span>#{list.topic} </span> }  </span>
                                 </h5> 
 
                                 <p className="sum">{list.summary}</p>
