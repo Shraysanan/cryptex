@@ -1,5 +1,6 @@
 const express=require("express");
 const bodyParser=require("body-parser");
+const path = require('path'); 
 
 const Comment=require("./models/comment");
 const Post=require("./models/post");
@@ -22,10 +23,10 @@ const cors = require('cors');
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/",function(req,res){
-    res.send("landing")
-  });
+app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, "build", "index.html")));
 
+
+app.use(express.static(path.join(__dirname, 'build')));  
 app.use("/register",require('./routes/userRoutes'));
 app.use("/login", require("./routes/LoginRoute"));
 app.use("/watchlist",require("./routes/watchlistroutes"));
@@ -33,6 +34,6 @@ app.use("/discussion",require("./routes/postRoutes"));
 app.use("/comment",require("./routes/commentRoutes"));
 
 
-app.listen(5000,function(){
-    console.log('cryptex has started')
-});
+app.listen(process.env.PORT||5000,process.env.IP,function(){
+  console.log('Crpytex has started')
+ });
