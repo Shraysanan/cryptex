@@ -7,19 +7,19 @@ const Post = require('../models/post');
 router.post('/create',async(req,res)=>{
     const userId = req.header('userid');
     const postId = req.header('postid');
-    User.findById(userId,function(err,user){
+    User.findById(userId,async(err,user)=>{
         if(err){
           console.log(err);
           res.status(500).send(err);
         }
         else{
-            Post.findById(postId,function(err,post){
+            await Post.findById(postId,async(err,post)=>{
                 if(err){
                   console.log(err);
                   res.status(500).send(err);
                 }
                 else{
-                    Comment.create(req.body,function(err,comment){
+                    await Comment.create(req.body,async(err,comment)=>{
                       if(err){
                         console.log(err);
                         res.status(500).send(err);
@@ -28,9 +28,9 @@ router.post('/create',async(req,res)=>{
                         comment.author.id=userId;
                         comment.author.username=user.name;
                         comment.post.id=postId;
-                        comment.save();
+                        await comment.save();
                         post.comments.push(comment);
-                        post.save();
+                        await post.save();
                         res.status(200).send("comment created and linked to user and post");
 
                       }
@@ -44,7 +44,7 @@ router.post('/create',async(req,res)=>{
 router.get('/getcomments',async(req,res)=>{
   console.log(req.header('postid'));
   const postId = req.header('postid');
-  Post.findById(postId).populate("comments").exec(function(err,post){
+  await Post.findById(postId).populate("comments").exec(function(err,post){
     if(err){
       console.log(err);
       res.status(500).send(err);
@@ -62,7 +62,7 @@ router.put('/editcomment',async(req,res)=>{
   const commentauthorid = req.header('commentauthorid');
   console.log("ready to update");
   if(userId==commentauthorid){
-    Comment.findByIdAndUpdate(commentId,{ text: req.body.text },(err,foundcomment)=>{
+    await Comment.findByIdAndUpdate(commentId,{ text: req.body.text },(err,foundcomment)=>{
       if (err){
         res.status(500).send(err);
       } 
@@ -80,7 +80,7 @@ router.delete("/deletecomment", async (req, res)=>{
   const commentauthorid = req.header('commentauthorid');
   console.log("ready to delete");
   if(userId==commentauthorid){
-    Comment.findByIdAndDelete(commentId,(err,foundcomment)=>{
+    await Comment.findByIdAndDelete(commentId,(err,foundcomment)=>{
       if (err){
         res.status(500).send(err);
       } 

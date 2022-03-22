@@ -7,7 +7,7 @@ router.put("/", auth, async (req,res)=>{
     
     console.log("user is is "+req.header('userid'))
     const userId = req.header('userid');
-    console.log(req.body.mywatchlist);
+    // console.log(req.body.mywatchlist);
     let User = await user.findByIdAndUpdate({ _id: userId },{ $set: { "mywatchlist": req.body.mywatchlist}},{new: true},function(err,updateduser){
         if(err) {
             console.log(err);
@@ -21,8 +21,8 @@ router.put("/", auth, async (req,res)=>{
 
 router.get("/",auth, async (req,res)=>{
     const userId = req.header('userid');    
-    console.log("=================================================================================");
-    console.log(userId);
+    // console.log("=================================================================================");
+    // console.log(userId);
     let User = await user.findById({ _id: userId }, function(err,user){
         if(err) {
             console.log(err);

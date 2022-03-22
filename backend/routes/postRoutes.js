@@ -8,13 +8,13 @@ const Comment = require('../models/comment');
 //new discussion
 router.post('/create',async(req,res)=>{
     const userId = req.header('userid');
-    User.findById(userId,function(err,user){
+    await User.findById(userId,async(err,user)=>{
         if(err){
           console.log(err);
           res.status(500).send(err);
         }
         else{
-        Post.create(req.body.post,function(err,post){
+        await Post.create(req.body.post,async(err,post)=>{
             //pass post object with params from react
           if(err){
             console.log(err);
@@ -23,21 +23,21 @@ router.post('/create',async(req,res)=>{
           else{
             post.author.id=userId;
             post.author.username=user.name;
-            post.save();
+            await post.save();
             user.posts.push(post);
-            user.save();
-            res.status(200).send("discussion created and linked to user");
+            await user.save();
           }
         });
         }
-      });  
+      }); 
+      res.status(200).send("discussion created and linked to user");
 });
 
 
 //show all posts
 
 router.get('/allposts',async (req,res)=>{
-  Post.find({}).sort({date:-1}).exec((err,posts)=>{
+  await Post.find({}).sort({date:-1}).exec((err,posts)=>{
       if(err){
           res.status(500).send(err)
       }else{
@@ -53,7 +53,7 @@ router.get('/allposts',async (req,res)=>{
 
 router.get('/myposts',async (req,res)=>{
     const userId = req.header('userid');
-    User.findById(userId).populate("posts").exec(function(err,user){
+    await User.findById(userId).populate("posts").exec(function(err,user){
         if(err){
             console.log(err);
             res.status(500).send(err);
@@ -68,7 +68,7 @@ router.get('/myposts',async (req,res)=>{
 router.get('/post/:id',async (req,res)=>{
     const postId = req.params.id;
     console.log(req.params);
-    Post.findById(postId).populate("comments").exec(function(err,post){
+    await Post.findById(postId).populate("comments").exec(function(err,post){
         //populate comments later
         if(err){
             console.log(err);
@@ -87,7 +87,7 @@ router.put('/editpost',async(req,res)=>{
     //replace above headers with req.body logic later
     console.log("ready to update");
     if(userId==postauthorid){
-      Post.findByIdAndUpdate(postId,{ Heading: req.body.Heading ,description: req.body.description},(err,foundpost)=>{
+      await Post.findByIdAndUpdate(postId,{ Heading: req.body.Heading ,description: req.body.description},(err,foundpost)=>{
         if (err){
           res.status(500).send(err);
         } 
@@ -107,7 +107,7 @@ router.delete("/deletepost", async (req, res)=>{
     //replace above headers with req.body logic later
     console.log("ready to delete");
     if(userId==postauthorid){
-      Post.findByIdAndDelete(postId,(err,foundpost)=>{
+      await Post.findByIdAndDelete(postId,(err,foundpost)=>{
         if (err){
           res.status(500).send(err);
         } 
