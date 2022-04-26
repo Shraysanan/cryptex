@@ -15,7 +15,7 @@ const NewsCatcherItem = props => {
                         <a href={list.link} target="_blank" rel="noopener noreferrer">
                             <div className="items">
                                 
-                                {list.media_content !=  null ? <img src={list.media_content} alt="Not available" className="newsImg" /> : <img src="media/altImg.jpg" alt="Not available" className="newsImg" />}
+                                {list.media_content !=  null ? <img src={list.media_content} alt="Not available" className="newsImg" /> : <img src="https://images.unsplash.com/photo-1621504450181-5d356f61d307?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Not available" className="newsImg" />}
                                 <h4>{list.title}</h4>
                                 <h5 className="author"> {list.author != null ?<span><PlayArrowIcon/>  {list.author}</span>  :  <span>   <PlayArrowIcon/>  {list.clean_url}</span>  } 
                                 <span className="topic"> {list.topic == "NA" ? null :<span>#{list.topic} </span> }  </span>
